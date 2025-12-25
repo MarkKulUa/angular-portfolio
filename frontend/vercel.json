@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "angular-portfolio-frontend",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/frontend/browser",
+  "framework": "angular",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
