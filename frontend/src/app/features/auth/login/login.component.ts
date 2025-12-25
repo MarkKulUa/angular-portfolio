@@ -42,29 +42,31 @@ import { MatCardModule } from '@angular/material/card';
       </mat-card>
     </div>
   `,
-  styles: [`
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 400px;
-    }
+  styles: [
+    `
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px;
+      }
 
-    mat-card {
-      max-width: 400px;
-      width: 100%;
-    }
+      mat-card {
+        max-width: 400px;
+        width: 100%;
+      }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
 
-    mat-form-field {
-      width: 100%;
-    }
-  `],
+      mat-form-field {
+        width: 100%;
+      }
+    `,
+  ],
 })
 export class LoginComponent {
   email = signal('');

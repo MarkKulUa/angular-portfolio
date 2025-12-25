@@ -1,0 +1,13 @@
+<footer class="footer">
+  <div class="container">
+    <p>&copy; {{ currentYear }} {{ name() }}. All rights reserved.</p>
+    <div class="social-links">
+      @if (linkedin()) {
+        <a [href]="linkedin()" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
+      }
+      @if (email()) {
+        <a [href]="'mailto:' + email()">Email</a>
+      }
+    </div>
+  </div>
+</footer>

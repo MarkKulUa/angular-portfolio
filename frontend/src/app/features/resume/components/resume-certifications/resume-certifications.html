@@ -1,0 +1,25 @@
+<section class="resume-certifications">
+  <div class="content">
+    <h2 class="section-title">Licenses & Certifications</h2>
+    <div class="certifications-grid">
+      @for (cert of certifications(); track cert.name) {
+        <div class="certification-card">
+          <h3 class="cert-name">
+            @if (cert.url) {
+              <a [href]="cert.url" target="_blank" rel="noopener noreferrer">{{ cert.name }}</a>
+            } @else {
+              {{ cert.name }}
+            }
+          </h3>
+          <div class="cert-provider">{{ cert.provider }}</div>
+          <div class="cert-issued">Issued: {{ cert.issued }}</div>
+          <div class="cert-skills">
+            @for (skill of cert.skills; track skill) {
+              <span class="skill-tag">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

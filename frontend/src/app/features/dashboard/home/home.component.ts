@@ -27,19 +27,21 @@ import { MatCardModule } from '@angular/material/card';
       </mat-card>
     </div>
   `,
-  styles: [`
-    .dashboard-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+  styles: [
+    `
+      .dashboard-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-    mat-card {
-      margin-top: 2rem;
-    }
+      mat-card {
+        margin-top: 2rem;
+      }
 
-    ul {
-      padding-left: 1.5rem;
-    }
-  `],
+      ul {
+        padding-left: 1.5rem;
+      }
+    `,
+  ],
 })
 export class HomeComponent {}

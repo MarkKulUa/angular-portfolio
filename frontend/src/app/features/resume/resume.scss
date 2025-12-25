@@ -1,0 +1,27 @@
+.resume-page {
+  background: #f7fafc;
+  min-height: calc(100vh - 70px);
+  padding: 3rem 2rem;
+}
+
+.resume-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.2rem;
+  color: #718096;
+}
+
+@media (max-width: 768px) {
+  .resume-page {
+    padding: 1.5rem 1rem;
+  }
+}

@@ -1,0 +1,92 @@
+.resume-education {
+  padding: 3rem 2rem;
+  background: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    border-radius: 2px;
+  }
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.education-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #667eea;
+}
+
+.institution {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.degree {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.specialization {
+  font-size: 1rem;
+  color: #4a5568;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+@media (max-width: 768px) {
+  .resume-education {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .education-item {
+    padding: 1.5rem;
+  }
+
+  .institution {
+    font-size: 1.1rem;
+  }
+
+  .degree {
+    font-size: 1rem;
+  }
+}

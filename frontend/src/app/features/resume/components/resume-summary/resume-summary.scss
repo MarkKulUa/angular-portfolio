@@ -1,0 +1,64 @@
+.resume-summary {
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    border-radius: 2px;
+  }
+}
+
+.job-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+}
+
+.languages {
+  font-size: 1rem;
+  color: #718096;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .resume-summary {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .job-title {
+    font-size: 1.1rem;
+  }
+}

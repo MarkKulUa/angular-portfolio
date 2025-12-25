@@ -1,26 +1,20 @@
 import { Routes } from '@angular/router';
+import { Home } from './features/home/home';
+import { Resume } from './features/resume/resume';
+import { NotFound } from './features/not-found/not-found';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    component: Home,
     pathMatch: 'full',
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./features/dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES),
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./features/profile/profile.routes').then((m) => m.PROFILE_ROUTES),
+    path: 'resume',
+    component: Resume,
   },
   {
     path: '**',
-    redirectTo: '/dashboard',
+    component: NotFound,
   },
 ];
