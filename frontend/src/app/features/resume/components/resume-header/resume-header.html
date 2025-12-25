@@ -2,7 +2,15 @@
   <div class="header-content">
     <div class="profile-section">
       <div class="profile-image">
-        <div class="avatar">{{ personalInfo().name.charAt(0) }}</div>
+        @if (hasPhoto()) {
+          <img
+            [src]="personalInfo().photo"
+            [alt]="personalInfo().name"
+            class="avatar-img"
+          />
+        } @else {
+          <div class="avatar">{{ personalInfo().name.charAt(0) }}</div>
+        }
       </div>
       <div class="profile-info">
         <h1 class="name">{{ personalInfo().name }}</h1>

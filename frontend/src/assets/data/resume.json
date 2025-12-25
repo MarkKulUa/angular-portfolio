@@ -8,20 +8,20 @@
     "photo": "assets/images/profile.png"
   },
   "summary": {
-    "title": "Certified Laravel & React Full Stack Engineer · Team Lead · Delivery Manager · 15+ Yrs Experience",
+    "title": "Certified Laravel/Node.js & React/Angular Full Stack Engineer · Team Lead · Delivery Manager · 15+ Yrs Experience",
     "description": "I design and deliver scalable, production-grade web applications across FinTech, SaaS, E-commerce, Transportation, and Real Estate. With a Bachelor's degree in IT and 15+ years in the industry, I specialize in building modular, API-first systems with clean, maintainable architecture.\n\nI've led cross-functional teams of 4–6 developers, managing architecture, task estimation, sprint planning, daily stand-ups, and task distribution. I ensure code quality through reviews, guide technical decision-making, and keep delivery aligned with business priorities across the full agile cycle.\n\nCertified by IBM, Edchart, and LaraDaily, I apply SOLID principles, PSR standards, CI/CD pipelines, and test-driven development to produce reliable, observable, and extensible code for both greenfield builds and legacy system refactors.",
     "languages": "English - fluent (B2+), Polish - conversational, Ukrainian - native."
   },
   "technicalExpertise": {
-    "backend": ["Laravel", "PHP", "Lumen", "REST APIs", "SOLID", "PHPUnit"],
-    "frontend": ["React.js", "Vue.js", "TypeScript", "Angular", "JavaScript", "Ant Design", "SCSS"],
+    "backend": ["Laravel", "PHP", "Node.js", "REST APIs", "SOLID", "PHPUnit", "RabbitMQ", "SQS/SNS"],
+    "frontend": ["React.js", "Angular", "TypeScript", "JavaScript", "Ant Design", "SCSS"],
     "automation": ["Make.com", "OpenAI API", "Airtable", "Mailgun"],
     "data": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Redis"],
     "devops": ["Docker", "GitHub Actions", "AWS", "DigitalOcean", "Vercel"],
     "monitoring": ["Datadog", "ELK Stack", "Monolog"],
     "tools": ["Git", "GitLab", "Jira", "Trello", "Miro", "Figma", "Slack"],
     "management": ["Agile", "Scrum", "Sprint planning", "Delivery tracking"],
-    "other": ["RabbitMQ", "Composer", "Webpack", "Vite", "Zabbix"]
+    "other": ["Composer", "Webpack", "Vite"]
   },
   "certifiedSkills": [
     {
@@ -106,11 +106,11 @@
       ],
       "skills": [
         "Laravel",
+        "Angular.js",
         "Git",
         "ESLint",
         "Elastic Stack (ELK)",
         "VueJs",
-        "Angular.js",
         "Amazon Web Services (AWS)",
         "PHPUnit",
         "SQL",
