@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, input, signal, effect } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
-import { PersonalInfo } from '../../../../shared/models/resume.model';
+import { PersonalInfo } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-header',
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './resume-header.html',
   styleUrl: './resume-header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
