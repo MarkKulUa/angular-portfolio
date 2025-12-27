@@ -9,13 +9,12 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: -8px;
-    right: 20px;
-    width: 120px;
-    height: 8px;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3));
-    border-radius: 4px;
-    filter: blur(4px);
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 60px;
+    background: radial-gradient(ellipse at bottom right, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 }
 
@@ -39,7 +38,7 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    
     border-radius: 2px;
   }
 }
