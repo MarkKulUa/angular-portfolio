@@ -32,18 +32,18 @@ describe('authGuard', () => {
   it('should allow access when authenticated', () => {
     mockStore.isAuthenticated.mockReturnValue(true);
 
-    const result = TestBed.runInInjectionContext(() => authGuard({} as any, {} as any));
+    const result = TestBed.runInInjectionContext(() => authGuard({} as never, {} as never));
 
     expect(result).toBe(true);
     expect(mockStore.isAuthenticated).toHaveBeenCalled();
   });
 
   it('should redirect to login when not authenticated', () => {
-    const mockUrlTree = { toString: () => '/auth/login' };
+    const mockUrlTree = { toString: (): string => '/auth/login' };
     mockStore.isAuthenticated.mockReturnValue(false);
     mockRouter.createUrlTree.mockReturnValue(mockUrlTree);
 
-    const result = TestBed.runInInjectionContext(() => authGuard({} as any, {} as any));
+    const result = TestBed.runInInjectionContext(() => authGuard({} as never, {} as never));
 
     expect(result).toBe(mockUrlTree);
     expect(mockStore.isAuthenticated).toHaveBeenCalled();

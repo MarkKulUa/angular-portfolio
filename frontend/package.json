@@ -11,7 +11,7 @@
     "test:ci": "vitest --run --coverage",
     "lint": "npm run sheriff && ng lint",
     "lint:fix": "ng lint --fix",
-    "sheriff": "npx sheriff verify",
+    "sheriff": "npx sheriff verify src/main.ts",
     "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,json}\"",
     "analyze": "ng build --stats-json && npx webpack-bundle-analyzer dist/frontend/stats.json"
@@ -49,6 +49,7 @@
     "@typescript-eslint/parser": "^8.0.0",
     "@vitest/coverage-v8": "^4.0.16",
     "@vitest/ui": "^4.0.16",
+    "angular-eslint": "^21.1.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.0",
@@ -56,14 +57,14 @@
     "lint-staged": "^15.0.0",
     "prettier": "^3.0.0",
     "typescript": "~5.9.0",
+    "typescript-eslint": "^8.50.1",
     "vitest": "^4.0.16",
     "webpack-bundle-analyzer": "^4.10.0"
   },
   "lint-staged": {
     "*.ts": [
       "eslint --fix",
-      "prettier --write",
-      "vitest related --run"
+      "prettier --write"
     ],
     "*.html": [
       "eslint --fix",

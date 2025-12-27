@@ -49,8 +49,8 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {
-      '@angular-eslint/template/accessibility-alt-text': 'error',
-      '@angular-eslint/template/accessibility-label-has-associated-control': 'error',
+      '@angular-eslint/template/alt-text': 'error',
+      '@angular-eslint/template/label-has-associated-control': 'error',
       '@angular-eslint/template/no-positive-tabindex': 'error',
       '@angular-eslint/template/use-track-by-function': 'error',
     },

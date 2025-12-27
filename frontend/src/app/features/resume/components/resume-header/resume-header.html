@@ -3,11 +3,7 @@
     <div class="profile-section">
       <div class="profile-image">
         @if (hasPhoto()) {
-          <img
-            [src]="personalInfo().photo"
-            [alt]="personalInfo().name"
-            class="avatar-img"
-          />
+          <img [src]="personalInfo().photo" [alt]="personalInfo().name" class="avatar-img" />
         } @else {
           <div class="avatar">{{ personalInfo().name.charAt(0) }}</div>
         }

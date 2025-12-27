@@ -18,9 +18,13 @@
     "test": "npm run test:frontend && npm run test:backend",
     "test:frontend": "npm run test --workspace=frontend",
     "test:backend": "npm run test --workspace=backend",
+    "test:ci": "npm run test:frontend && npm run test:backend",
     "lint": "npm run lint:frontend && npm run lint:backend",
     "lint:frontend": "npm run lint --workspace=frontend",
-    "lint:backend": "npm run lint --workspace=backend"
+    "lint:backend": "npm run lint --workspace=backend",
+    "lint:fix": "npm run lint:fix --workspace=frontend && npm run lint:fix --workspace=backend",
+    "format": "npm run format --workspace=frontend && npm run format --workspace=backend",
+    "prepare": "husky"
   },
   "keywords": [
     "angular",

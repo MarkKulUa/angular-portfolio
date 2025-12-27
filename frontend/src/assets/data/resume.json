@@ -1,4 +1,4 @@
-  {
+{
   "personalInfo": {
     "name": "Mark Kulishov",
     "location": "Warsaw, Poland",
@@ -13,7 +13,16 @@
     "languages": "English - fluent (B2+), Polish - conversational, Ukrainian - native."
   },
   "technicalExpertise": {
-    "backend": ["Laravel", "PHP", "Node.js", "REST APIs", "SOLID", "PHPUnit", "RabbitMQ", "SQS/SNS"],
+    "backend": [
+      "Laravel",
+      "PHP",
+      "Node.js",
+      "REST APIs",
+      "SOLID",
+      "PHPUnit",
+      "RabbitMQ",
+      "SQS/SNS"
+    ],
     "frontend": ["React.js", "Angular", "TypeScript", "JavaScript", "Ant Design", "SCSS"],
     "automation": ["Make.com", "OpenAI API", "Airtable", "Mailgun"],
     "data": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Redis"],

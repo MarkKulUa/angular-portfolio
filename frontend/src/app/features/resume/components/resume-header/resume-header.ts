@@ -17,8 +17,8 @@ export class ResumeHeader {
       const photo = this.personalInfo().photo;
       if (photo) {
         const img = new Image();
-        img.onload = () => this.hasPhoto.set(true);
-        img.onerror = () => this.hasPhoto.set(false);
+        img.onload = (): void => this.hasPhoto.set(true);
+        img.onerror = (): void => this.hasPhoto.set(false);
         img.src = photo;
       } else {
         this.hasPhoto.set(false);

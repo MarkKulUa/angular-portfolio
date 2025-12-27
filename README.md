@@ -121,16 +121,39 @@ cd backend && npm run test:watch
 # Lint all code
 npm run lint
 
-# Lint and auto-fix
-npm run lint:frontend -- --fix
-npm run lint:backend -- --fix
+# Lint with auto-fix
+npm run lint:fix
 
-# Format code with Prettier
-cd frontend && npm run format
-cd backend && npm run format
+# Format all code
+npm run format
 
 # Check formatting
 cd frontend && npm run format:check
+```
+
+### Git Hooks (Automatic)
+
+Проект настроен с автоматическими проверками качества кода:
+
+**Pre-commit (перед каждым коммитом):**
+- ✅ ESLint с автофиксом только измененных файлов
+- ✅ Prettier форматирование
+- ✅ Sheriff архитектурные правила (frontend)
+- ⚡ Быстро: ~5-15 секунд
+
+**Pre-push (перед push в репозиторий):**
+- ✅ Полный запуск всех тестов
+- ✅ Production build обоих приложений
+- ⏱️ Медленнее: ~1-3 минуты
+
+**Подробнее:** См. [docs/GIT_HOOKS.md](docs/GIT_HOOKS.md)
+
+```bash
+# Пропустить pre-commit (не рекомендуется!)
+git commit --no-verify -m "message"
+
+# Пропустить pre-push (не рекомендуется!)
+git push --no-verify
 ```
 
 ## Building
@@ -356,7 +379,7 @@ angular-portfolio/
 
 ### Code Quality
 - ✅ ESLint + Prettier integration
-- ✅ Pre-commit hooks (lint + format + test)
+- ✅ Pre-commit hooks (lint + format измененных файлов)
 - ✅ Pre-push hooks (full test suite + build)
 - ✅ Sheriff architecture enforcement
 - ✅ Strict TypeScript mode

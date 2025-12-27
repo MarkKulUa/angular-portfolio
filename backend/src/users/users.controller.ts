@@ -10,19 +10,19 @@ export class UsersController {
 
   @Get()
   @ApiOperation({ summary: 'Get all users' })
-  findAll() {
+  findAll(): Promise<unknown[]> {
     return this.usersService.findAll();
   }
 
   @Get(':id')
   @ApiOperation({ summary: 'Get user by ID' })
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string): Promise<unknown> {
     return this.usersService.findOne(id);
   }
 
   @Post()
   @ApiOperation({ summary: 'Create new user' })
-  create(@Body() createUserDto: CreateUserDto) {
+  create(@Body() createUserDto: CreateUserDto): Promise<unknown> {
     return this.usersService.create(createUserDto);
   }
 }

@@ -10,7 +10,7 @@ import { ResumeData } from '@core/services/resume-data';
 })
 export class Footer implements OnInit {
   private resumeDataService = inject(ResumeData);
-  
+
   currentYear = new Date().getFullYear();
   protected name = signal<string>('');
   protected email = signal<string>('');

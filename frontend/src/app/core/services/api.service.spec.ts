@@ -7,7 +7,6 @@ import { ApiService } from './api.service';
 describe('ApiService', () => {
   let service: ApiService;
   let httpMock: HttpTestingController;
-  const mockApiUrl = 'http://localhost:3000/api';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

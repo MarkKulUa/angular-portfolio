@@ -1,22 +1,24 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { TestBed } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ResumeData } from './resume-data';
 
 describe('ResumeData', () => {
   let service: ResumeData;
-  let httpClientMock: { get: ReturnType<typeof vi.fn> };
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    httpClientMock = {
-      get: vi.fn(),
-    };
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting(), ResumeData],
+    });
 
-    service = new ResumeData(httpClientMock as any);
+    service = TestBed.inject(ResumeData);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
+    httpMock.verify();
     TestBed.resetTestingModule();
   });
 
@@ -56,12 +58,12 @@ describe('ResumeData', () => {
       certifications: [],
     };
 
-    httpClientMock.get.mockReturnValue(of(mockResumeData));
-
     service.getResumeData().subscribe((data) => {
       expect(data).toEqual(mockResumeData);
     });
 
-    expect(httpClientMock.get).toHaveBeenCalledWith('assets/data/resume.json');
+    const req = httpMock.expectOne('assets/data/resume.json');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockResumeData);
   });
 });

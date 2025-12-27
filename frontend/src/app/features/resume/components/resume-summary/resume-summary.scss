@@ -3,9 +3,11 @@
   background: linear-gradient(to bottom, #f8f9ff 0%, #ffffff 100%);
   border-left: 4px solid transparent;
   border-image: linear-gradient(to bottom, #667eea, #764ba2) 1;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -13,7 +15,11 @@
     right: 0;
     width: 200px;
     height: 60px;
-    background: radial-gradient(ellipse at bottom right, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      ellipse at bottom right,
+      rgba(102, 126, 234, 0.08) 0%,
+      transparent 70%
+    );
     pointer-events: none;
   }
 }
@@ -38,7 +44,7 @@
     left: 0;
     width: 60px;
     height: 4px;
-    
+
     border-radius: 2px;
   }
 }
