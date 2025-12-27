@@ -6,21 +6,21 @@ import { User } from './entities/user.entity';
 export class UsersService {
   private users: User[] = [];
 
-  findAll(): User[] {
-    return this.users;
+  findAll(): Promise<User[]> {
+    return Promise.resolve(this.users);
   }
 
-  findOne(id: string): User | undefined {
-    return this.users.find((user) => user.id === id);
+  findOne(id: string): Promise<User | undefined> {
+    return Promise.resolve(this.users.find((user) => user.id === id));
   }
 
-  create(createUserDto: CreateUserDto): User {
+  create(createUserDto: CreateUserDto): Promise<User> {
     const user: User = {
       id: Date.now().toString(),
       ...createUserDto,
       createdAt: new Date(),
     };
     this.users.push(user);
-    return user;
+    return Promise.resolve(user);
   }
 }
