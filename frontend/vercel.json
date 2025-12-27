@@ -1,9 +1,9 @@
 {
   "version": 2,
   "name": "angular-portfolio-frontend",
-  "buildCommand": "npm install && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/frontend/browser",
-  "installCommand": "npm install",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "angular",
   "routes": [
     {
