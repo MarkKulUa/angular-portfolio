@@ -1,8 +1,9 @@
 {
   "version": 2,
   "name": "angular-portfolio-frontend",
-  "buildCommand": "npm run build",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist/frontend/browser",
+  "installCommand": "npm install",
   "framework": "angular",
   "routes": [
     {

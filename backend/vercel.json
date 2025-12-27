@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "name": "angular-portfolio-backend",
+  "framework": "nestjs",
+  "buildCommand": "npm install && npm run build",
+  "installCommand": "npm install",
   "builds": [
     {
       "src": "dist/main.js",
