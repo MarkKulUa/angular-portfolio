@@ -21,7 +21,11 @@
   animation: fadeInUp 0.8s ease;
 
   .highlight {
-    background: linear-gradient(to right, #ffd89b, #19547b);
+    background: linear-gradient(
+      90deg,
+      color(srgb 0.856501 0.723229 0.988398) 0%,
+      color(srgb 0.607979 0.71007 0.99968) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -131,6 +135,28 @@
 .info-card p {
   color: #718096;
   font-size: 1rem;
+
+  a {
+    color: #6f42c1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #b392f0;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .info-card p a {
+    color: #b392f0;
+
+    &:hover {
+      color: #d4bbff;
+    }
+  }
 }
 
 @keyframes fadeInUp {
