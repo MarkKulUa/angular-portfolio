@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Education } from '../../../../shared/models/resume.model';
+import { Education } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-education',

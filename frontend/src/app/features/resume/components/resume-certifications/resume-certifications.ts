@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Certification } from '../../../../shared/models/resume.model';
+import { Certification } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-certifications',

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { WorkExperience } from '../../../../shared/models/resume.model';
+import { WorkExperience } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-experience',

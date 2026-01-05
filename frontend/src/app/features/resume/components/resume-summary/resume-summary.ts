@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Summary } from '../../../../shared/models/resume.model';
+import { Summary } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-summary',

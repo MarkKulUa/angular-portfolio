@@ -1,0 +1,30 @@
+<div class="pokemon-card" [class.selected]="isSelected()">
+  <input
+    type="checkbox"
+    class="select-checkbox"
+    [checked]="isSelected()"
+    (click)="onSelectToggle($event)"
+    [attr.aria-label]="'Select ' + pokemon.name"
+  />
+
+  <div class="pokemon-image-container">
+    @if (isLoadingDetails()) {
+      <div class="image-loading"></div>
+    } @else {
+      <img [src]="getImageUrl()" [alt]="pokemon.name" class="pokemon-image" />
+    }
+  </div>
+
+  <div class="pokemon-info">
+    <div class="pokemon-id">#{{ getPokemonId() }}</div>
+    <h3 class="pokemon-name">{{ pokemon.name }}</h3>
+
+    @if (getTypes().length > 0) {
+      <div class="pokemon-types">
+        @for (type of getTypes(); track type) {
+          <span class="type-badge" [class]="type">{{ type }}</span>
+        }
+      </div>
+    }
+  </div>
+</div>

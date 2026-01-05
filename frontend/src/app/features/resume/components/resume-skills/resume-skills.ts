@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { TechnicalExpertise, CertifiedSkill } from '../../../../shared/models/resume.model';
+import { TechnicalExpertise, CertifiedSkill } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-resume-skills',

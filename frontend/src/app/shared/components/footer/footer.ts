@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { ResumeData } from '@core/services/resume-data';
+import { Resume as ResumeModel } from '@shared/models/resume.model';
 
 @Component({
   selector: 'app-footer',
@@ -31,7 +32,7 @@ export class Footer implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.resumeDataService.getResumeData().subscribe((data) => {
+    this.resumeDataService.getResumeData().subscribe((data: ResumeModel) => {
       this.name.set(data.personalInfo.name);
       this.email.set(data.personalInfo.email);
       this.linkedin.set(data.personalInfo.linkedin);
