@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Home } from './features/home/home';
-import { Resume } from './features/resume/resume';
-import { NotFound } from './features/not-found/not-found';
-import { pokemonDetailsGuard } from './core/guards/pokemon.guard';
+import { Home } from '@features/home/home';
+import { Resume } from '@features/resume/resume';
+import { NotFound } from '@features/not-found/not-found';
+import { pokemonDetailsGuard } from '@core/guards/pokemon.guard';
 
 export const routes: Routes = [
   {
@@ -28,6 +28,10 @@ export const routes: Routes = [
         (m) => m.PokemonDetailsComponent
       ),
     canActivate: [pokemonDetailsGuard],
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
   },
   {
     path: '**',

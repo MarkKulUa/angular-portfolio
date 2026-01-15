@@ -1,0 +1,54 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1>Login</h1>
+    <p class="subtitle">Welcome back!</p>
+
+    @if (errorMessage) {
+      <div class="error-message">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="your@email.com"
+          [class.error]="hasError('email', 'required') || hasError('email', 'email')"
+        />
+        @if (hasError('email', 'required')) {
+          <span class="error-text">Email required</span>
+        }
+        @if (hasError('email', 'email')) {
+          <span class="error-text">Invalid email format</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="••••••••"
+          [class.error]="hasError('password', 'required') || hasError('password', 'minlength')"
+        />
+        @if (hasError('password', 'required')) {
+          <span class="error-text">Password is required</span>
+        }
+        @if (hasError('password', 'minlength')) {
+          <span class="error-text">Minimum 6 characters</span>
+        }
+      </div>
+
+      <button type="submit" [disabled]="isLoading" class="btn-primary">
+        {{ isLoading ? 'Entrance...' : 'Login' }}
+      </button>
+    </form>
+
+    <p class="register-link">Don't have an account? <a routerLink="/auth/register">Register</a></p>
+  </div>
+</div>

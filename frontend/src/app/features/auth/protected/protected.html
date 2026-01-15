@@ -1,0 +1,47 @@
+<div class="protected-container">
+  <div class="protected-card">
+    <div class="success-icon">🎉</div>
+
+    <h1>Welcome to the Secret Club!</h1>
+
+    @if (store.user(); as user) {
+      <div class="user-info">
+        <p class="greeting">
+          Hello, <strong>{{ user.name }}</strong
+          >!
+        </p>
+        <p class="email">{{ user.email }}</p>
+      </div>
+    }
+
+    <div class="secret-content">
+      <h2>🤫 Top Secret Information</h2>
+      <p class="joke">Why do programmers prefer dark mode?</p>
+      <p class="punchline">Because light attracts bugs! 🐛</p>
+
+      <div class="fun-facts">
+        <h3>Fun Facts About You:</h3>
+        <ul>
+          <li>✨ You successfully implemented JWT authentication</li>
+          <li>🚀 You're now part of the elite authenticated users</li>
+          <li>🎯 You can access this page because you have a valid token</li>
+          <li>🔐 Your session is secure and protected</li>
+          <li>💪 You're learning Angular like a boss!</li>
+        </ul>
+      </div>
+
+      <div class="wisdom">
+        <p class="quote">
+          "Any fool can write code that a computer can understand. Good programmers write code that
+          humans can understand."
+        </p>
+        <p class="author">- Martin Fowler</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="goHome()" class="btn-secondary">Go to Home</button>
+      <button (click)="onLogout()" class="btn-danger">Logout</button>
+    </div>
+  </div>
+</div>
