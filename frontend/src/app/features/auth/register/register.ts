@@ -60,7 +60,7 @@ export class Register {
     this.isLoading = true;
     this.errorMessage = '';
 
-    const { registerData } = this.registerForm.value;
+    const { ...registerData } = this.registerForm.value;
 
     this.authService.register(registerData).subscribe({
       next: () => {
