@@ -1,6 +1,6 @@
-<div class="login-container">
-  <div class="login-card">
-    <h1>Login</h1>
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Sign In</h1>
     <p class="subtitle">Welcome back!</p>
 
     @if (errorMessage) {
@@ -20,7 +20,7 @@
           [class.error]="hasError('email', 'required') || hasError('email', 'email')"
         />
         @if (hasError('email', 'required')) {
-          <span class="error-text">Email required</span>
+          <span class="error-text">Email is required</span>
         }
         @if (hasError('email', 'email')) {
           <span class="error-text">Invalid email format</span>
@@ -45,10 +45,10 @@
       </div>
 
       <button type="submit" [disabled]="isLoading" class="btn-primary">
-        {{ isLoading ? 'Entrance...' : 'Login' }}
+        {{ isLoading ? 'Signing in...' : 'Sign In' }}
       </button>
     </form>
 
-    <p class="register-link">Don't have an account? <a routerLink="/auth/register">Register</a></p>
+    <p class="auth-link">Don't have an account? <a routerLink="/auth/register">Sign Up</a></p>
   </div>
 </div>
