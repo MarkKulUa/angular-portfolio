@@ -9,7 +9,7 @@
   },
   "summary": {
     "title": "Senior <strong>Full-Stack Engineer</strong> (Laravel, Node.js, React, Angular) · <strong>Team Lead</strong> (Delivery-Focused) · <strong>15+ Yrs Experience</strong>",
-    "description": "Senior Full-Stack Engineer with 15+ years of experience, transitioning into Team Lead and delivery-focused roles. I specialize in designing and delivering scalable, API-first systems with predictable delivery across FinTech, SaaS, E-commerce, Transportation, and Real Estate domains.\n\nI have led cross-functional teams of 4–6 engineers, taking responsibility for technical architecture, task estimation, sprint planning, and delivery predictability. I actively track velocity, commitment vs completion, cycle time, and unplanned work to identify bottlenecks, stabilize delivery, and align engineering output with business priorities.\n\nStrong background in modular architecture, SOLID principles, PSR standards, CI/CD pipelines, and test-driven practices. Experienced in both greenfield development and complex legacy system refactoring, with a focus on sustainable team performance, risk reduction, and clear communication with stakeholders.",
+    "description": "Senior Full-Stack Engineer and Delivery-Focused Team Lead with 15+ years of experience in building and operating business-critical systems. I specialize in designing and delivering scalable, API-first systems with predictable delivery across FinTech, SaaS, E-commerce, Transportation, and Real Estate domains.\n\nI have led cross-functional teams of 4–6 engineers, taking responsibility for technical architecture, task estimation, sprint planning, and delivery predictability. I actively track velocity, commitment vs completion, cycle time, and unplanned work to identify bottlenecks, stabilize delivery, and align engineering output with business priorities.\n\nStrong background in modular architecture, SOLID principles, PSR standards, CI/CD pipelines, and test-driven practices. Experienced in both greenfield development and complex legacy system refactoring, with a focus on sustainable team performance, risk reduction, and clear communication with stakeholders.",
     "languages": "English (B2+), Polish (conversational), Ukrainian (native)"
   },
   "technicalExpertise": {
@@ -24,12 +24,23 @@
       "SQS/SNS"
     ],
     "frontend": ["React.js", "Angular", "TypeScript", "JavaScript", "Ant Design", "SCSS"],
-    "automation": ["Make.com", "OpenAI API", "Airtable", "Mailgun"],
+    "management": [
+      "Agile",
+      "Scrum",
+      "Sprint planning",
+      "Delivery tracking",
+      "Team Lead (4–6)",
+      "Velocity",
+      "Commitment vs Completion",
+      "Cycle Time",
+      "Delivery Predictability",
+      "Stakeholder Alignment"
+    ],
     "data": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Redis"],
     "devops": ["Docker", "GitHub Actions", "AWS", "DigitalOcean", "Vercel"],
     "monitoring": ["Datadog", "ELK Stack", "Monolog"],
     "tools": ["Git", "GitLab", "Jira", "Trello", "Miro", "Figma", "Slack"],
-    "management": ["Agile", "Scrum", "Sprint planning", "Delivery tracking"],
+    "automation": ["Make.com", "OpenAI API", "Airtable", "Mailgun", "Google & Gmail API"],
     "other": ["Composer", "Webpack", "Vite"]
   },
   "certifiedSkills": [
