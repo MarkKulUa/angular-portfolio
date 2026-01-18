@@ -24,7 +24,7 @@
     "lint:backend": "npm run lint --workspace=backend",
     "lint:fix": "npm run lint:fix --workspace=frontend && npm run lint:fix --workspace=backend",
     "format": "npm run format --workspace=frontend && npm run format --workspace=backend",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "keywords": [
     "angular",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "concurrently": "^9.1.0",
     "dotenv-cli": "^7.4.2",
+    "husky": "^9.0.0",
     "typescript": "~5.9.0"
   }
 }
