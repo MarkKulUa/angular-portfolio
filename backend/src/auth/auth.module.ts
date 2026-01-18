@@ -14,7 +14,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
       global: true,
       secret: process.env.JWT_SECRET || 'secret-key-should-be-changed-in-production',
       signOptions: {
-        expiresIn: '24h',
+        expiresIn: '30m',
       },
     }),
   ],

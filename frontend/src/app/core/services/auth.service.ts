@@ -18,11 +18,11 @@ export interface RegisterRequest {
 }
 
 export interface AuthResponse {
-  access_token: string;
   user: {
     id: string;
     email: string;
     name: string;
+    createdAt: Date;
   };
 }
 
@@ -35,21 +35,13 @@ export class AuthService {
   private store = inject(AppStore);
 
   private readonly API_URL = environment.apiUrl;
-  private readonly TOKEN_KEY = 'auth_token';
-
-  /**
-   * Initialize auth state from localStorage on app start
-   */
-  constructor() {
-    this.initializeAuthState();
-  }
 
   /**
    * Register new user
    */
   register(data: RegisterRequest): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${this.API_URL}/auth/register`, data)
+      .post<AuthResponse>(`${this.API_URL}/auth/register`, data, { withCredentials: true })
       .pipe(tap((response) => this.handleAuthSuccess(response)));
   }
 
@@ -58,7 +50,7 @@ export class AuthService {
    */
   login(data: LoginRequest): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${this.API_URL}/auth/login`, data)
+      .post<AuthResponse>(`${this.API_URL}/auth/login`, data, { withCredentials: true })
       .pipe(tap((response) => this.handleAuthSuccess(response)));
   }
 
@@ -66,16 +58,17 @@ export class AuthService {
    * Logout user
    */
   logout(): void {
-    localStorage.removeItem(this.TOKEN_KEY);
-    this.store.reset();
-    this.router.navigate(['/auth/login']);
-  }
-
-  /**
-   * Get JWT token
-   */
-  getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    this.http.post(`${this.API_URL}/auth/logout`, {}, { withCredentials: true }).subscribe({
+      next: () => {
+        this.store.reset();
+        this.router.navigate(['/auth/login']);
+      },
+      error: () => {
+        // Even if logout fails on backend, clear local state
+        this.store.reset();
+        this.router.navigate(['/auth/login']);
+      },
+    });
   }
 
   /**
@@ -93,25 +86,24 @@ export class AuthService {
   }
 
   /**
-   * Initialize auth state from localStorage
+   * Verify authentication status with backend
+   * Call this on app initialization to restore session
    */
-  private initializeAuthState(): void {
-    const token = this.getToken();
-    if (token) {
-      // TODO: implement validate token with backend. 1. If token exists, 2. Decode JWT to get user info
-    }
+  verifyAuth(): Observable<AuthResponse> {
+    return this.http
+      .get<AuthResponse>(`${this.API_URL}/auth/me`, { withCredentials: true })
+      .pipe(tap((response) => this.handleAuthSuccess(response)));
   }
 
   /**
    * Handle successful authentication
    */
   private handleAuthSuccess(response: AuthResponse): void {
-    localStorage.setItem(this.TOKEN_KEY, response.access_token);
     this.store.setUser({
       id: response.user.id,
       email: response.user.email,
       name: response.user.name,
-      createdAt: new Date(),
+      createdAt: new Date(response.user.createdAt),
     });
   }
 }
