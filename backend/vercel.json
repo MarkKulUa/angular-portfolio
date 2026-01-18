@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "angular-portfolio-backend",
-  "framework": "nestjs",
   "builds": [
     {
       "src": "src/main.ts",
