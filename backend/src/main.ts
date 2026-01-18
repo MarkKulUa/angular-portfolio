@@ -5,6 +5,7 @@ import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { FastifyInstance } from 'fastify';
+import cors from '@fastify/cors';
 
 import { AppModule } from './app.module';
 
@@ -40,10 +41,17 @@ async function createApp(): Promise<NestFastifyApplication> {
   });
 
   // CORS
-  app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:4200',
+  await app.register(cors, {
+    origin: [process.env.FRONTEND_URL || 'http://localhost:4200'],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   });
+
+  // app.enableCors({
+  //   origin: process.env.FRONTEND_URL || 'http://localhost:4200',
+  //   credentials: true,
+  // });
 
   // Swagger disabled in production by default
   const swaggerEnabled = !isProduction && process.env.SWAGGER_DISABLED !== 'true';
@@ -91,6 +99,12 @@ if (!process.env.VERCEL) {
 
 // Vercel serverless handler
 export default async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
-  await createApp();
-  cachedFastify!.server.emit('request', req, res);
+  try {
+    await createApp();
+    cachedFastify!.server.emit('request', req, res);
+  } catch (err) {
+    console.error('Serverless handler failed:', err);
+    res.statusCode = 500;
+    res.end('Internal Server Error');
+  }
 };
