@@ -96,10 +96,13 @@ export class AuthController {
   async logout(@Res({ passthrough: true }) reply: FastifyReply): Promise<{ message: string }> {
     // Clear auth cookie by setting Max-Age to 0
     const isProduction = process.env.NODE_ENV === 'production';
-    const cookieOptions = ['auth_token=', 'Max-Age=0', 'Path=/', 'HttpOnly', 'SameSite=Lax'];
+    const cookieOptions = ['auth_token=', 'Max-Age=0', 'Path=/', 'HttpOnly'];
 
     if (isProduction) {
       cookieOptions.push('Secure');
+      cookieOptions.push('SameSite=None');
+    } else {
+      cookieOptions.push('SameSite=Lax');
     }
 
     reply.header('Set-Cookie', cookieOptions.join('; '));
@@ -120,11 +123,15 @@ export class AuthController {
       `Max-Age=${maxAge}`,
       'Path=/',
       'HttpOnly', // Prevents JavaScript access (XSS protection)
-      'SameSite=Lax', // CSRF protection
     ];
 
     if (isProduction) {
-      cookieOptions.push('Secure'); // HTTPS only in production
+      // For cross-domain cookies in production
+      cookieOptions.push('Secure'); // HTTPS only
+      cookieOptions.push('SameSite=None'); // Allow cross-domain
+    } else {
+      // For local development (same domain)
+      cookieOptions.push('SameSite=Lax');
     }
 
     reply.header('Set-Cookie', cookieOptions.join('; '));
