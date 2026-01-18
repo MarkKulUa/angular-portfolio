@@ -4,11 +4,20 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
+import type { IncomingMessage, ServerResponse } from 'http';
 
-async function bootstrap(): Promise<void> {
+let cachedApp: NestFastifyApplication;
+
+async function createApp(): Promise<NestFastifyApplication> {
+  if (cachedApp) {
+    return cachedApp;
+  }
+
+  const isProduction = process.env.NODE_ENV === 'production';
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: true }),
+    new FastifyAdapter({ logger: !isProduction }),
   );
 
   // Security
@@ -46,10 +55,29 @@ async function bootstrap(): Promise<void> {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
+  await app.init();
+  cachedApp = app;
+  return app;
+}
+
+async function bootstrap(): Promise<void> {
+  const app = await createApp();
   const port = process.env.PORT || 3000;
   await app.listen(port, '0.0.0.0');
   console.log(`Application is running on: http://localhost:${port}`);
   console.log(`Swagger docs available at: http://localhost:${port}/api/docs`);
 }
 
-bootstrap();
+// For local dev
+if (require.main === module) {
+  bootstrap();
+}
+
+// For Vercel serverless
+export default async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
+  const app = await createApp();
+  const instance = app.getHttpAdapter().getInstance();
+
+  await instance.ready();
+  instance.server.emit('request', req, res);
+};
