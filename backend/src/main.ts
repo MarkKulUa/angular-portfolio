@@ -41,12 +41,18 @@ async function createApp(): Promise<NestFastifyApplication> {
   });
 
   // CORS
+  const allowedOrigins = [
+    process.env.FRONTEND_URL || 'http://localhost:4200',
+    'https://portfolio-rmk.vercel.app',
+  ].filter(Boolean);
+
   await app.register(cors, {
-    origin: [process.env.FRONTEND_URL || 'http://localhost:4200'],
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
   });
+
+  //allowedHeaders: ['Content-Type', 'Authorization'],
 
   // app.enableCors({
   //   origin: process.env.FRONTEND_URL || 'http://localhost:4200',
