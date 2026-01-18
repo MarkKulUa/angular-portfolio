@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { AppStore } from '../store/app.store';
 import { User } from '@core/models/user.model';
+import { environment } from '@environments/environment';
 
 export interface LoginRequest {
   email: string;
@@ -33,7 +34,7 @@ export class AuthService {
   private router = inject(Router);
   private store = inject(AppStore);
 
-  private readonly API_URL = 'http://localhost:3000/api';
+  private readonly API_URL = environment.apiUrl;
   private readonly TOKEN_KEY = 'auth_token';
 
   /**
