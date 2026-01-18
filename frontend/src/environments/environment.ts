@@ -1,12 +1,4 @@
-export interface Environment {
-  production: boolean;
-  apiUrl: string;
-  apiTimeout: number;
-  features: {
-    analytics: boolean;
-    darkMode: boolean;
-  };
-}
+import { Environment } from './environment.interface';
 
 export const environment: Environment = {
   production: false,
