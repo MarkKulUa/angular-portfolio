@@ -1,6 +1,4 @@
 {
   "version": 2,
-  "name": "angular-nest-portfolio",
-  "builds": [],
-  "routes": []
+  "name": "angular-nest-portfolio"
 }

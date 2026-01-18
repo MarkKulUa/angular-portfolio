@@ -2,16 +2,10 @@
   "version": 2,
   "name": "angular-portfolio-backend",
   "builds": [
-    {
-      "src": "src/main.ts",
-      "use": "@vercel/node"
-    }
+    { "src": "src/main.ts", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/main.ts"
-    }
+    { "src": "/(.*)", "dest": "src/main.ts" }
   ],
   "env": {
     "NODE_ENV": "production"
