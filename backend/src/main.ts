@@ -107,7 +107,12 @@ if (!process.env.VERCEL) {
 export default async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
   try {
     await createApp();
-    cachedFastify!.server.emit('request', req, res);
+
+    if (!cachedFastify?.server) {
+      throw new Error('Fastify server is not initialized');
+    }
+
+    cachedFastify.server.emit('request', req, res);
   } catch (err) {
     console.error('Serverless handler failed:', err);
     res.statusCode = 500;
