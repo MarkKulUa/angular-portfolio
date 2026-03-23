@@ -1,1 +1,21 @@
-.vercel
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Local env files
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Test coverage
+coverage
+
+# Vite
+.vite
