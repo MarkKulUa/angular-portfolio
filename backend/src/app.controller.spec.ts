@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Angular 21 + NestJS Monorepo API"', () => {
-      expect(appController.getHello()).toBe('Angular 21 + NestJS Monorepo API');
+    it('should return "React 19 + NestJS Monorepo API"', () => {
+      expect(appController.getHello()).toBe('React 19 + NestJS Monorepo API');
     });
   });
 

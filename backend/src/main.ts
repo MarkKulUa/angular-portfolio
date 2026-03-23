@@ -64,7 +64,7 @@ async function createApp(): Promise<NestFastifyApplication> {
   if (swaggerEnabled) {
     const config = new DocumentBuilder()
       .setTitle('API Documentation')
-      .setDescription('Angular + NestJS Monorepo API')
+      .setDescription('React + NestJS Monorepo API')
       .setVersion('1.0')
       .addBearerAuth()
       .build();

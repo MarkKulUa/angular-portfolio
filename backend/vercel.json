@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "angular-portfolio-backend",
+  "name": "react-portfolio-backend",
   "builds": [
     { "src": "src/main.ts", "use": "@vercel/node" }
   ],

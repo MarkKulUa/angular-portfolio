@@ -1,7 +1,7 @@
 {
-  "name": "angular-nest-portfolio",
+  "name": "react-nest-portfolio",
   "version": "1.0.0",
-  "description": "Production-ready Angular 21 + NestJS portfolio",
+  "description": "Production-ready React 19 + NestJS portfolio",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -27,7 +27,7 @@
     "prepare": "husky || true"
   },
   "keywords": [
-    "angular",
+    "react",
     "nestjs",
     "monorepo",
     "typescript"

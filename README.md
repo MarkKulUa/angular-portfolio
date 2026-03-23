@@ -1,12 +1,12 @@
-# Angular 21 + NestJS Portfolio Project
+# React 19 + NestJS Portfolio Project
 
-> Production-ready full-stack TypeScript monorepo demonstrating modern Angular and NestJS architecture patterns
+> Production-ready full-stack TypeScript monorepo demonstrating modern React and NestJS architecture patterns
 
 ## About
 
-This is a portfolio project showcasing enterprise-grade development practices with the latest Angular 21 and NestJS 11 technologies. The project demonstrates:
+This is a portfolio project showcasing enterprise-grade development practices with the latest React 19 and NestJS 11 technologies. The project demonstrates:
 
-- Modern Angular 21 with Signals and standalone components
+- Modern React 19 with hooks and functional components
 - NestJS 11 with Fastify for high-performance backend
 - Monorepo architecture with npm workspaces
 - Comprehensive testing setup (Vitest + Jest)
@@ -17,9 +17,9 @@ This is a portfolio project showcasing enterprise-grade development practices wi
 ## Tech Stack
 
 **Frontend:**
-- Angular 21.0.6 - Standalone components, Signals, Zoneless
+- React 19 - Hooks, functional components, React Router
 - Vitest - Modern testing framework
-- Angular Material - UI components
+- Tailwind CSS + shadcn/ui - UI components
 - TypeScript 5.9 - Strict mode
 
 **Backend:**
@@ -38,14 +38,11 @@ This is a portfolio project showcasing enterprise-grade development practices wi
 
 - **Node.js**: 24+ (current: 22.16.0 - upgrade recommended)
 - **npm**: 11+ (current: 10.9.2 - upgrade recommended)
-- **Angular CLI**: 21+ (global installation required)
 
 ```bash
-# Install Angular CLI 21 globally
-npm install -g @angular/cli@21
-
 # Verify installation
-ng version
+node --version
+npm --version
 ```
 
 ## Installation
@@ -176,7 +173,7 @@ cd frontend && npm run analyze
 
 ### Full Stack Deployment with Vercel (Recommended)
 
-Vercel can host both your Angular frontend and NestJS backend as serverless functions.
+Vercel can host both your React frontend and NestJS backend as serverless functions.
 
 **Frontend Deployment:**
 ```bash
@@ -291,7 +288,7 @@ npm run format           # Format with Prettier
    - Go to https://vercel.com
    - Click "Add New Project"
    - Import your GitHub repository
-   - Vercel will auto-detect Angular and deploy
+   - Vercel will auto-detect React and deploy
 
 3. **Configure Environment Variables:**
    - In Vercel dashboard, go to Settings → Environment Variables
@@ -316,7 +313,7 @@ Vercel automatically deploys:
 
 ```
 angular-portfolio/
-├── frontend/                 # Angular 21 application
+├── frontend/                 # React 19 application
 │   ├── src/
 │   │   ├── app/
 │   │   │   ├── core/        # Singleton services, guards, interceptors
@@ -358,15 +355,15 @@ angular-portfolio/
 
 ## Key Features
 
-### Angular 21 Features
-- ✅ Standalone components (no NgModules)
-- ✅ Signal-based state management
-- ✅ OnPush change detection everywhere
+### React 19 Features
+- ✅ Functional components with hooks
+- ✅ Zustand state management
+- ✅ React Router lazy loading
 - ✅ Vitest for testing (10-20x faster than Karma)
-- ✅ Functional guards and interceptors
+- ✅ React Hook Form + Zod validation
 - ✅ Path aliases (@core, @shared, @features)
 - ✅ Lazy loading routes
-- ✅ Angular Material UI
+- ✅ Tailwind CSS + shadcn/ui
 
 ### NestJS Features
 - ✅ Fastify adapter (2x faster than Express)
@@ -394,7 +391,7 @@ Create `.env` file in the root directory:
 ```env
 # Frontend
 VITE_API_URL=http://localhost:3000/api
-VITE_APP_NAME=Angular NestJS Portfolio
+VITE_APP_NAME=React NestJS Portfolio
 
 # Backend
 PORT=3000
@@ -430,13 +427,13 @@ npm install
 # Verify TypeScript version (should be 5.9.x)
 cat frontend/node_modules/typescript/package.json | grep version
 
-# Clear Angular cache
-rm -rf frontend/.angular frontend/node_modules/.cache
+# Clear frontend cache
+rm -rf frontend/node_modules/.cache
 ```
 
 ## Contributing
 
-1. Follow Angular Style Guide: https://angular.dev/style-guide
+1. Follow React best practices
 2. Write tests for new features
 3. Ensure all checks pass: `npm run lint && npm test && npm run build`
 4. Use conventional commits
@@ -452,4 +449,4 @@ For questions or feedback about this portfolio project, please open an issue.
 
 ---
 
-**Built with Angular 21 + NestJS 11 | Production-Ready | Enterprise-Grade**
+**Built with React 19 + NestJS 11 | Production-Ready | Enterprise-Grade**

@@ -7,7 +7,7 @@ yarn.lock
 dist/
 out-tsc/
 tmp/
-.angular/
+.vite/
 coverage/
 
 # Environment
