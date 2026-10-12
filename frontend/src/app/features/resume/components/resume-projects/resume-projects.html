@@ -1,0 +1,14 @@
+<section class="resume-section" aria-labelledby="projects-title">
+  <div class="content">
+    <h2 class="section-title" id="projects-title">Selected Independent Projects</h2>
+    <ul class="projects">
+      @for (project of projects(); track project.name) {
+        <li class="project">
+          <h3 class="project__name">{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+          <p class="meta">{{ project.tech.join(', ') }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

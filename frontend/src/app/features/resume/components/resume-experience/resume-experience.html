@@ -1,51 +1,37 @@
-<section class="resume-experience">
+<section class="resume-section" aria-labelledby="experience-title">
   <div class="content">
-    <h2 class="section-title">Work History</h2>
-    <div class="experience-list">
-      @for (job of workHistory(); track job.company + job.period) {
-        <div class="experience-item">
-          <div class="experience-header">
-            <h3 class="position">{{ job.position }}</h3>
-            <div class="company-info">
-              <span class="company">{{ job.company }}</span>
-              <span class="type">{{ job.type }}</span>
-            </div>
-            <div class="period-location">{{ job.period }} · {{ job.location }}</div>
-          </div>
+    <h2 class="section-title" id="experience-title">Work History</h2>
 
-          @if (job.description) {
-            <p class="description">{{ job.description }}</p>
-          }
+    @for (employer of experience(); track employer.company) {
+      <div class="employer">
+        <header class="employer__header">
+          <h3 class="employer__name">{{ employer.company }}</h3>
+          <p class="meta">
+            {{ employer.employmentType }} · {{ employer.period | period }} · {{ employer.location }}
+          </p>
+        </header>
 
-          @if (job.projects && job.projects.length > 0) {
-            <div class="projects">
-              <h4>Projects Delivered:</h4>
-              <ul>
-                @for (project of job.projects; track project) {
-                  <li>{{ project }}</li>
+        <ol class="roles">
+          @for (role of employer.roles; track role.title) {
+            <li class="role">
+              <h4 class="role__title">{{ role.title }}</h4>
+              <p class="meta">{{ role.period | period }}</p>
+              <ul class="bullets">
+                @for (highlight of role.highlights; track $index) {
+                  <li>{{ highlight }}</li>
                 }
               </ul>
-            </div>
+            </li>
           }
+        </ol>
 
-          @if (job.responsibilities && job.responsibilities.length > 0) {
-            <div class="responsibilities">
-              <h4>Role & Responsibilities:</h4>
-              <ul>
-                @for (resp of job.responsibilities; track resp) {
-                  <li>{{ resp }}</li>
-                }
-              </ul>
-            </div>
-          }
-
-          <div class="skills">
-            @for (skill of job.skills; track skill) {
-              <span class="skill-badge">{{ skill }}</span>
-            }
-          </div>
-        </div>
-      }
-    </div>
+        @if (employer.focus?.length) {
+          <p class="employer__line"><strong>Focus:</strong> {{ employer.focus!.join(', ') }}</p>
+        }
+        @if (employer.tech?.length) {
+          <p class="employer__line"><strong>Tech:</strong> {{ employer.tech!.join(', ') }}</p>
+        }
+      </div>
+    }
   </div>
 </section>

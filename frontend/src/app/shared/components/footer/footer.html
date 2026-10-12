@@ -1,32 +1,27 @@
-<footer class="footer">
+<footer class="footer no-print">
   <div class="container">
     <div class="footer-content">
-      <p>&copy; {{ currentYear }} {{ name() }}. All rights reserved.</p>
+      <p>&copy; {{ currentYear }} {{ person().name }}. All rights reserved.</p>
 
       <div class="tech-stack">
         <span class="tech-label">Built with:</span>
-        <div class="tech-icons">
+        <ul class="tech-icons">
           @for (tech of techStack; track tech.name) {
-            <a [href]="tech.url" target="_blank" rel="noopener noreferrer" [title]="tech.name">
-              <img
-                [ngSrc]="'assets/images/' + tech.icon"
-                [alt]="tech.name"
-                width="24"
-                height="24"
-              />
-            </a>
+            <li>
+              <a [href]="tech.url" target="_blank" rel="noopener noreferrer" [title]="tech.name">
+                <img
+                  [ngSrc]="'assets/images/' + tech.icon"
+                  [alt]="tech.name"
+                  width="24"
+                  height="24"
+                />
+              </a>
+            </li>
           }
-        </div>
+        </ul>
       </div>
 
-      <div class="social-links">
-        @if (linkedin()) {
-          <a [href]="linkedin()" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
-        }
-        @if (email()) {
-          <a [href]="'mailto:' + email()">Email</a>
-        }
-      </div>
+      <app-contact-links [links]="person().links" [showCredly]="false" variant="on-brand" />
     </div>
   </div>
 </footer>

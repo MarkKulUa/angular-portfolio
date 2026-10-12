@@ -1,0 +1,43 @@
+@use '../../resume-section';
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.group {
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-brand-start);
+}
+
+.group__title {
+  color: var(--color-heading);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-3);
+}
+
+.group__extra {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+
+  strong {
+    color: var(--color-heading);
+  }
+}
+
+@media print {
+  .groups {
+    display: block;
+  }
+
+  .group {
+    background: none;
+    border: 0;
+    padding: 0 0 6pt;
+    break-inside: avoid;
+  }
+}

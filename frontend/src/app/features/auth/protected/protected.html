@@ -1,46 +1,42 @@
 <div class="protected-container">
   <div class="protected-card">
-    <div class="success-icon">🎉</div>
-
-    <h1>Welcome to the Secret Club!</h1>
+    <p class="eyebrow">Auth demo</p>
+    <h1>You are signed in</h1>
+    <p class="subtitle">This page is only reachable with a valid session.</p>
 
     @if (store.user(); as user) {
       <div class="user-info">
         <p class="greeting">
-          Hello, <strong>{{ user.name }}</strong
-          >!
+          Signed in as <strong>{{ user.name }}</strong>
         </p>
         <p class="email">{{ user.email }}</p>
       </div>
     }
 
-    <div class="secret-content">
-      <h2>🤫 Top Secret Information</h2>
-      <p class="joke">Why do programmers prefer dark mode?</p>
-      <p class="punchline">Because light attracts bugs! 🐛</p>
-
-      <div class="fun-facts">
-        <h3>Fun Facts About You:</h3>
-        <ul>
-          <li>✨ You successfully implemented JWT authentication</li>
-          <li>🚀 You're now part of the elite authenticated users</li>
-          <li>🎯 You can access this page because you have a valid token</li>
-          <li>🔐 Your session is secure and protected</li>
-        </ul>
-      </div>
-
-      <div class="wisdom">
-        <p class="quote">
-          "Any fool can write code that a computer can understand. Good programmers write code that
-          humans can understand."
-        </p>
-        <p class="author">- Martin Fowler</p>
-      </div>
-    </div>
+    <h2 class="how-title">How it works</h2>
+    <ol class="how">
+      <li>
+        <strong>Sign-in</strong>: the NestJS API (Fastify) validates the request with Zod and sets a
+        JWT in an <code>HttpOnly</code> cookie, so the token never reaches JavaScript.
+      </li>
+      <li>
+        <strong>Session restore</strong>: when you open a protected page without a session in
+        memory, the guard calls <code>/auth/me</code>; the cookie is sent automatically with
+        <code>withCredentials</code>. Public pages never wait for the API.
+      </li>
+      <li>
+        <strong>Route protection</strong>: the functional <code>authGuard</code> checks the signal
+        store first and redirects anonymous users to the sign-in page.
+      </li>
+      <li><strong>Logout</strong>: the API expires the cookie and the client store is reset.</li>
+    </ol>
+    <p class="note">
+      Demo only: users are kept in memory and disappear when the serverless instance restarts.
+    </p>
 
     <div class="actions">
-      <button (click)="goHome()" class="btn-primary">Go to Home</button>
-      <button (click)="onLogout()" class="btn-danger">Logout</button>
+      <button type="button" (click)="goToLab()" class="btn-primary">Back to the Lab</button>
+      <button type="button" (click)="onLogout()" class="btn-danger">Log out</button>
     </div>
   </div>
 </div>

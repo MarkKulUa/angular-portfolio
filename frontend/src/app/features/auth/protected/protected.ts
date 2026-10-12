@@ -1,13 +1,10 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { AppStore } from '@core/store/app.store';
 
 @Component({
   selector: 'app-protected',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './protected.html',
   styleUrl: './protected.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,9 +22,9 @@ export class Protected {
   }
 
   /**
-   * Navigate to home
+   * Navigate back to the Lab hub
    */
-  goHome(): void {
-    this.router.navigate(['/']);
+  goToLab(): void {
+    this.router.navigate(['/lab']);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonStateService } from '../../../core/services/pokemon-state.service';
-import { CsvExportUtil } from '../../../shared/utils/csv-export.util';
+import { CsvExportUtil } from '../utils/csv-export.util';
 import { SelectedPokemon } from '../../../core/models/pokemon.model';
 
 @Component({

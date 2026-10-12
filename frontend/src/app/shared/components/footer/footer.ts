@@ -1,26 +1,22 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { ResumeData } from '@core/services/resume-data';
-import { Resume as ResumeModel } from '@shared/models/resume.model';
+import { Person } from '@shared/models/profile.model';
+import { ContactLinks } from '@shared/ui';
 
 @Component({
   selector: 'app-footer',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, ContactLinks],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Footer implements OnInit {
-  private resumeDataService = inject(ResumeData);
+export class Footer {
+  person = input.required<Person>();
 
-  currentYear = new Date().getFullYear();
-  protected name = signal<string>('');
-  protected email = signal<string>('');
-  protected linkedin = signal<string>('');
+  protected readonly currentYear = new Date().getFullYear();
 
-  protected techStack = [
+  protected readonly techStack = [
     { name: 'Angular', url: 'https://angular.dev', icon: 'angular.svg' },
-    { name: 'Angular Material', url: 'https://material.angular.io', icon: 'material.svg' },
     { name: 'TypeScript', url: 'https://www.typescriptlang.org', icon: 'typescript.svg' },
     { name: 'RxJS', url: 'https://rxjs.dev', icon: 'rxjs.svg' },
     { name: 'Node.js', url: 'https://nodejs.org', icon: 'nodejs.svg' },
@@ -30,12 +26,4 @@ export class Footer implements OnInit {
     { name: 'ESLint', url: 'https://eslint.org', icon: 'eslint.svg' },
     { name: 'Git', url: 'https://git-scm.com', icon: 'git.svg' },
   ];
-
-  ngOnInit(): void {
-    this.resumeDataService.getResumeData().subscribe((data: ResumeModel) => {
-      this.name.set(data.personalInfo.name);
-      this.email.set(data.personalInfo.email);
-      this.linkedin.set(data.personalInfo.linkedin);
-    });
-  }
 }

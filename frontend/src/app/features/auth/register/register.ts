@@ -64,7 +64,7 @@ export class Register {
 
     this.authService.register(registerData).subscribe({
       next: () => {
-        this.router.navigate(['/auth/protected']);
+        this.router.navigate(['/lab/auth/protected']);
       },
       error: (error) => {
         this.isLoading = false;

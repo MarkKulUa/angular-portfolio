@@ -1,58 +1,39 @@
-<div class="home">
-  <div class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Hi, I'm <span class="highlight">Mark Kulishov</span></h1>
-      <p class="hero-subtitle">
-        Certified Laravel & React/Angular | Senior Full Stack Engineer | Team Lead
-      </p>
-      <p class="hero-description">
-        15+ years of experience building scalable, enterprise-level web applications across FinTech,
-        SaaS, E-commerce, and Real Estate. Team Lead & Delivery Manager specializing in clean
-        architecture and production-grade systems.
-      </p>
-      <div class="hero-actions">
-        <a routerLink="/resume" class="btn btn-primary">View Resume</a>
-        <a routerLink="/pokemon" class="btn btn-primary">Pokemon Demo</a>
-        <a
-          href="https://www.linkedin.com/in/mark-kulishov-85140b1b5/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary"
-          >Contact Me</a
-        >
-      </div>
-    </div>
-  </div>
+@let data = profile();
 
-  <div class="quick-info">
-    <div class="container">
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">💼</div>
-          <h3>15+ Years</h3>
-          <p>Professional Experience</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🎓</div>
-          <h3>6+ Certifications</h3>
-          <p>
-            IBM, Coursera, Edchart, LaraDaily,
-            <a href="https://www.credly.com/users/mark-kulishov/badges#credly" target="_blank"
-              >Credly</a
-            >
-          </p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🚀</div>
-          <h3>Team Lead</h3>
-          <p>Agile & Scrum Expert</p>
-        </div>
-        <div class="info-card">
-          <div class="info-icon">🌍</div>
-          <h3>Remote Work</h3>
-          <p>Warsaw, Poland</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-home-hero
+  [person]="data.person"
+  [headline]="data.headline"
+  [generatingCv]="cvPdf.generating()"
+  (downloadCv)="cvPdf.download()"
+/>
+
+<app-section id="impact" eyebrow="Impact" title="Results in numbers">
+  <ul class="metrics">
+    @for (metric of data.impactMetrics; track metric.label) {
+      <li><app-metric-tile [metric]="metric" /></li>
+    }
+  </ul>
+</app-section>
+
+<app-section
+  id="case-studies"
+  eyebrow="Case studies"
+  title="How I solved real delivery problems"
+  [muted]="true"
+>
+  <ul class="cases">
+    @for (caseStudy of data.caseStudies; track caseStudy.id) {
+      <li><app-case-card [caseStudy]="caseStudy" /></li>
+    }
+  </ul>
+</app-section>
+
+<app-section id="how-i-lead" eyebrow="Leadership" title="How I lead">
+  <app-leadership-principles [principles]="data.principles" />
+</app-section>
+
+<app-contact-cta
+  [person]="data.person"
+  [generatingCv]="cvPdf.generating()"
+  (downloadCv)="cvPdf.download()"
+/>

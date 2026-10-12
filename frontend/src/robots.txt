@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /lab/auth/
+
+Sitemap: https://portfolio-rmk.vercel.app/sitemap.xml

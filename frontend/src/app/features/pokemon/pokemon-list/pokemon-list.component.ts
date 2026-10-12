@@ -86,7 +86,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   onCardClick(pokemon: Pokemon): void {
-    this.router.navigate(['/pokemon', pokemon.name]);
+    this.router.navigate(['/lab/pokemon', pokemon.name]);
   }
 
   private loadPokemon(searchTerm: string, page: number): void {

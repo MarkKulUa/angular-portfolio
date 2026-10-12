@@ -1,17 +1,21 @@
 <div class="resume-page">
-  @if (resumeData(); as data) {
-    <div class="resume-container">
-      <app-resume-header [personalInfo]="data.personalInfo" />
-      <app-resume-summary [summary]="data.summary" />
-      <app-resume-skills
-        [technicalExpertise]="data.technicalExpertise"
-        [certifiedSkills]="data.certifiedSkills"
-      />
-      <app-resume-experience [workHistory]="data.workHistory" />
-      <app-resume-education [education]="data.education" />
-      <app-resume-certifications [certifications]="data.certifications" />
-    </div>
-  } @else {
-    <div class="loading">Loading resume...</div>
-  }
+  @let data = profile();
+  <article class="resume-container">
+    <app-resume-header
+      [person]="data.person"
+      [headline]="data.headline"
+      [generatingCv]="cvPdf.generating()"
+      [cvError]="cvPdf.error()"
+      (downloadCv)="cvPdf.download()"
+    />
+    <app-resume-summary [summary]="data.summary" [languages]="data.languages" />
+    <app-resume-competencies [competencies]="data.competencies" />
+    <app-resume-experience [experience]="data.experience" />
+    <app-resume-projects [projects]="data.independentProjects" />
+    <app-resume-education [education]="data.education" />
+    <app-resume-certifications
+      [certifications]="data.certifications"
+      [credlyUrl]="data.person.links.credly"
+    />
+  </article>
 </div>

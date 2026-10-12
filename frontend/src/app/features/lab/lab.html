@@ -1,0 +1,61 @@
+<section class="intro" aria-labelledby="lab-title">
+  <div class="container">
+    <p class="intro__eyebrow">Engineering Lab</p>
+    <h1 class="intro__title" id="lab-title">Hands-on, still</h1>
+    <p class="intro__lead">
+      Managers who understand the code make better technical decisions. These demos and this site
+      itself are where I keep my engineering skills sharp.
+    </p>
+  </div>
+</section>
+
+<app-section id="demos" eyebrow="Demos" title="Try it">
+  <ul class="demos">
+    @for (demo of demos; track demo.id) {
+      <li class="demo">
+        <h3 class="demo__title">{{ demo.title }}</h3>
+        <p>{{ demo.description }}</p>
+        <h4 class="demo__subtitle">What it demonstrates</h4>
+        <ul class="demo__list">
+          @for (item of demo.demonstrates; track item) {
+            <li>
+              <app-icon name="check" [size]="16" />
+              <span>{{ item }}</span>
+            </li>
+          }
+        </ul>
+        <app-tag-list [items]="demo.tech" label="Technologies" variant="subtle" />
+        <a class="demo__link" [routerLink]="demo.link">
+          {{ demo.linkLabel }}
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+      </li>
+    }
+  </ul>
+</app-section>
+
+<app-section id="how-built" eyebrow="Under the hood" title="How this site is built" [muted]="true">
+  <ul class="facts">
+    @for (fact of buildFacts; track fact.title) {
+      <li class="fact">
+        <h3 class="fact__title">{{ fact.title }}</h3>
+        <p>{{ fact.description }}</p>
+      </li>
+    }
+  </ul>
+
+  <h3 class="flow__title">Spec-driven, AI-assisted workflow</h3>
+  <p class="flow__lead">
+    The spec-driven approach I introduced for my team, applied to this site: every change goes
+    through it.
+  </p>
+  <ol class="flow">
+    @for (step of specSteps; track step.title; let i = $index) {
+      <li class="flow__step">
+        <span class="flow__number" aria-hidden="true">{{ i + 1 }}</span>
+        <h4 class="flow__step-title">{{ step.title }}</h4>
+        <p>{{ step.description }}</p>
+      </li>
+    }
+  </ol>
+</app-section>

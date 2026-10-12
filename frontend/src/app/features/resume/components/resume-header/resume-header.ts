@@ -1,28 +1,21 @@
-import { ChangeDetectionStrategy, Component, input, signal, effect } from '@angular/core';
-import { PersonalInfo } from '@shared/models/resume.model';
+import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { Headline, Person } from '@shared/models/profile.model';
+import { ContactLinks, Icon } from '@shared/ui';
 
 @Component({
   selector: 'app-resume-header',
-  imports: [],
+  imports: [NgOptimizedImage, ContactLinks, Icon],
   templateUrl: './resume-header.html',
   styleUrl: './resume-header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumeHeader {
-  personalInfo = input.required<PersonalInfo>();
-  protected hasPhoto = signal<boolean>(false);
+  person = input.required<Person>();
+  headline = input.required<Headline>();
+  generatingCv = input<boolean>(false);
+  cvError = input<string | null>(null);
+  downloadCv = output();
 
-  constructor() {
-    effect(() => {
-      const photo = this.personalInfo().photo;
-      if (photo) {
-        const img = new Image();
-        img.onload = (): void => this.hasPhoto.set(true);
-        img.onerror = (): void => this.hasPhoto.set(false);
-        img.src = photo;
-      } else {
-        this.hasPhoto.set(false);
-      }
-    });
-  }
+  protected photoFailed = signal(false);
 }

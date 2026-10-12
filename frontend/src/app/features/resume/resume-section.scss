@@ -1,0 +1,89 @@
+// Shared section styles for resume components (`@use '../../resume-section';`).
+:host {
+  display: block;
+}
+
+.resume-section {
+  padding: var(--space-7) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  position: relative;
+  color: var(--color-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-brand);
+    border-radius: 2px;
+  }
+}
+
+.bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: var(--space-5);
+    margin-bottom: var(--space-2);
+    color: var(--color-text);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.25rem;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      background: var(--color-brand-start);
+      border-radius: 50%;
+    }
+  }
+}
+
+.meta {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 768px) {
+  .resume-section {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .section-title {
+    font-size: var(--fs-xl);
+  }
+}
+
+@media print {
+  .resume-section {
+    padding: 10pt 0;
+    border-bottom-color: #ccc;
+  }
+
+  .section-title {
+    font-size: 14pt;
+    margin-bottom: 8pt;
+
+    &::after {
+      display: none;
+    }
+  }
+}

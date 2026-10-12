@@ -61,12 +61,12 @@ export class AuthService {
     this.http.post(`${this.API_URL}/auth/logout`, {}, { withCredentials: true }).subscribe({
       next: () => {
         this.store.reset();
-        this.router.navigate(['/auth/login']);
+        this.router.navigate(['/lab/auth/login']);
       },
       error: () => {
         // Even if logout fails on backend, clear local state
         this.store.reset();
-        this.router.navigate(['/auth/login']);
+        this.router.navigate(['/lab/auth/login']);
       },
     });
   }

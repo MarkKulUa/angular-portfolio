@@ -1,0 +1,25 @@
+@use '../../resume-section';
+
+.projects {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project {
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-border);
+  break-inside: avoid;
+}
+
+.project__name {
+  color: var(--color-heading);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-1);
+}
+
+.project .meta {
+  margin-top: var(--space-1);
+}

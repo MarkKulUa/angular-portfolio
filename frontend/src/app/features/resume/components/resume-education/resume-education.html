@@ -1,15 +1,13 @@
-<section class="resume-education">
+<section class="resume-section" aria-labelledby="education-title">
   <div class="content">
-    <h2 class="section-title">Education</h2>
-    <div class="education-list">
-      @for (edu of education(); track edu.institution) {
-        <div class="education-item">
-          <h3 class="institution">{{ edu.institution }}</h3>
-          <div class="degree">{{ edu.degree }}</div>
-          <div class="specialization">{{ edu.specialization }}</div>
-          <div class="period">{{ edu.period }}</div>
-        </div>
-      }
-    </div>
+    <h2 class="section-title" id="education-title">Education</h2>
+    @for (edu of education(); track edu.institution) {
+      <div class="education">
+        <h3 class="education__institution">{{ edu.institution }}</h3>
+        <p>{{ edu.degree }}</p>
+        <p class="education__specialization">“{{ edu.specialization }}”</p>
+        <p class="meta">{{ edu.period | period }}</p>
+      </div>
+    }
   </div>
 </section>

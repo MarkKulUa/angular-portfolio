@@ -1,25 +1,62 @@
-<section class="resume-certifications">
+<section class="resume-section" aria-labelledby="certifications-title">
   <div class="content">
-    <h2 class="section-title">Licenses & Certifications</h2>
-    <div class="certifications-grid">
-      @for (cert of certifications(); track cert.name) {
-        <div class="certification-card">
-          <h3 class="cert-name">
+    <h2 class="section-title" id="certifications-title">Licenses & Certifications</h2>
+
+    @for (cert of featured(); track cert.name) {
+      <div class="featured">
+        <app-icon class="featured__icon" name="award" [size]="40" />
+        <div class="featured__body">
+          <h3 class="featured__name">{{ cert.name }}</h3>
+          <p class="meta">
+            {{ cert.provider }} · Issued {{ cert.issued }}
+            @if (cert.expires) {
+              · Expires {{ cert.expires }}
+            }
+          </p>
+          <p class="featured__links no-print">
             @if (cert.url) {
-              <a [href]="cert.url" target="_blank" rel="noopener noreferrer">{{ cert.name }}</a>
+              <a [href]="cert.url" target="_blank" rel="noopener noreferrer">
+                Credly badge <app-icon name="external" [size]="14" />
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            }
+            @if (cert.verifyUrl) {
+              <a [href]="cert.verifyUrl" target="_blank" rel="noopener noreferrer">
+                Verify with AWS <app-icon name="external" [size]="14" />
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            }
+          </p>
+        </div>
+      </div>
+    }
+
+    <ul class="grid">
+      @for (cert of others(); track cert.name) {
+        <li class="card">
+          <h3 class="card__name">
+            @if (cert.url) {
+              <a [href]="cert.url" target="_blank" rel="noopener noreferrer">
+                {{ cert.name }}
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
             } @else {
               {{ cert.name }}
             }
           </h3>
-          <div class="cert-provider">{{ cert.provider }}</div>
-          <div class="cert-issued">Issued: {{ cert.issued }}</div>
-          <div class="cert-skills">
-            @for (skill of cert.skills; track skill) {
-              <span class="skill-tag">{{ skill }}</span>
-            }
-          </div>
-        </div>
+          <p class="meta">{{ cert.provider }} · Issued {{ cert.issued }}</p>
+          @if (cert.skills?.length) {
+            <app-tag-list [items]="cert.skills!" label="Skills" variant="subtle" />
+          }
+        </li>
       }
-    </div>
+    </ul>
+
+    <p class="all-badges no-print">
+      <a [href]="credlyUrl()" target="_blank" rel="noopener noreferrer">
+        All badges on Credly <app-icon name="arrow-right" [size]="16" />
+        <span class="visually-hidden">(opens in a new tab)</span>
+      </a>
+    </p>
   </div>
 </section>

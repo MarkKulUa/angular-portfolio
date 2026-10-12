@@ -1,0 +1,21 @@
+# Mark Kulishov · Engineering Manager
+
+> Engineering leader in Warsaw, Poland (remote-first, EU time zone). 15+ years in software engineering and 4+ years of full-cycle people management in banking. AWS Certified Solutions Architect – Associate. Open to Engineering Manager roles. Contact: LinkedIn only.
+
+## Pages
+- [Home](https://portfolio-rmk.vercel.app/): positioning, impact metrics, case studies, leadership principles
+- [Resume](https://portfolio-rmk.vercel.app/resume): full online CV with a downloadable PDF
+- [Engineering Lab](https://portfolio-rmk.vercel.app/lab): hands-on demos (Angular 21, NestJS 11) and how the site is built
+
+## Key facts
+- Current role: Team Lead & Delivery Manager at PrivatBank (Jul 2025 – Present); with PrivatBank since Jul 2011
+- Leads a cross-functional unit of 7 (4 engineers, 3 business analysts, with embedded QA and design) running 15+ concurrent internal platforms
+- 99.8%+ SLA for 5 consecutive quarters
+- Led the emergency migration of 15 systems (30 services, 17 databases) to AWS in 3 months with no disruption to critical business operations
+- Hired 3 engineers since 2022 with 100% retention
+- Introduced spec-driven, AI-assisted development (Cursor, Kiro, Claude): a typical feature went from a full 2-week sprint to 1–2 days
+- Languages: English (professional working proficiency), Polish (conversational), Ukrainian (native)
+
+## Contact
+- LinkedIn: https://www.linkedin.com/in/mark-k-85140b1b5/
+- Credly: https://www.credly.com/users/mark-kulishov/badges

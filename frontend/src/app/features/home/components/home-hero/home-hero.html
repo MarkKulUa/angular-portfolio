@@ -1,0 +1,68 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      @if (person().availability) {
+        <p class="badge">
+          <span class="badge__dot" aria-hidden="true"></span>
+          {{ person().availability }}
+        </p>
+      }
+
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__name">{{ person().name }}</span>
+        <span class="hero__role">{{ headline().role }}</span>
+      </h1>
+
+      <ul class="hero__tagline" aria-label="Highlights">
+        @for (item of headline().tagline; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+
+      <p class="hero__statement">{{ headline().valueStatement }}</p>
+      <p class="hero__scope">{{ headline().scope }}</p>
+
+      <p class="hero__location">
+        <app-icon name="map-pin" [size]="18" />
+        {{ person().location }} · {{ person().workFormat }}
+      </p>
+
+      <div class="hero__actions">
+        <a routerLink="/resume" class="btn btn--primary">
+          View resume
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+        <button
+          type="button"
+          class="btn btn--outline"
+          [disabled]="generatingCv()"
+          [attr.aria-busy]="generatingCv()"
+          (click)="downloadCv.emit()"
+        >
+          <app-icon name="download" [size]="18" />
+          {{ generatingCv() ? 'Preparing…' : 'Download CV (PDF)' }}
+        </button>
+        <a
+          [href]="person().links.linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--outline"
+        >
+          <app-icon name="linkedin" [size]="18" />
+          Connect on LinkedIn
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__photo">
+      <img
+        [ngSrc]="person().photo"
+        [alt]="'Photo of ' + person().name"
+        width="280"
+        height="280"
+        priority
+      />
+    </div>
+  </div>
+</section>

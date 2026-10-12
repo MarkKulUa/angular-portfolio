@@ -59,7 +59,7 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/pokemon']);
+    this.router.navigate(['/lab/pokemon']);
   }
 
   getImageUrl(): string {

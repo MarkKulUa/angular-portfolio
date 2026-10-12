@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
-import { ResumeData } from '@core/services/resume-data';
-import { Resume as ResumeModel } from '../../shared/models/resume.model';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ProfileContent } from '@core/content/profile-content';
+import { CvPdfService } from '@core/cv/cv-pdf.service';
 import { ResumeHeader } from './components/resume-header/resume-header';
 import { ResumeSummary } from './components/resume-summary/resume-summary';
-import { ResumeSkills } from './components/resume-skills/resume-skills';
+import { ResumeCompetencies } from './components/resume-competencies/resume-competencies';
 import { ResumeExperience } from './components/resume-experience/resume-experience';
+import { ResumeProjects } from './components/resume-projects/resume-projects';
 import { ResumeEducation } from './components/resume-education/resume-education';
 import { ResumeCertifications } from './components/resume-certifications/resume-certifications';
 
@@ -13,8 +14,9 @@ import { ResumeCertifications } from './components/resume-certifications/resume-
   imports: [
     ResumeHeader,
     ResumeSummary,
-    ResumeSkills,
+    ResumeCompetencies,
     ResumeExperience,
+    ResumeProjects,
     ResumeEducation,
     ResumeCertifications,
   ],
@@ -22,13 +24,7 @@ import { ResumeCertifications } from './components/resume-certifications/resume-
   styleUrl: './resume.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Resume implements OnInit {
-  private resumeDataService = inject(ResumeData);
-  protected resumeData = signal<ResumeModel | null>(null);
-
-  ngOnInit(): void {
-    this.resumeDataService.getResumeData().subscribe((data) => {
-      this.resumeData.set(data);
-    });
-  }
+export class Resume {
+  protected readonly profile = inject(ProfileContent).profile;
+  protected readonly cvPdf = inject(CvPdfService);
 }

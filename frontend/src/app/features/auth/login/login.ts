@@ -39,7 +39,7 @@ export class Login {
 
     this.authService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigate(['/auth/protected']);
+        this.router.navigate(['/lab/auth/protected']);
       },
       error: (error) => {
         this.isLoading = false;

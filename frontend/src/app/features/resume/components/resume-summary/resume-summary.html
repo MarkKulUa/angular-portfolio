@@ -1,8 +1,14 @@
-<section class="resume-summary">
+<section class="resume-section" aria-labelledby="summary-title">
   <div class="content">
-    <h2 class="section-title">Summary</h2>
-    <p class="job-title" [innerHTML]="summary().title"></p>
-    <p class="description">{{ summary().description }}</p>
-    <p class="languages">{{ summary().languages }}</p>
+    <h2 class="section-title" id="summary-title">Summary</h2>
+    @for (paragraph of paragraphs(); track $index) {
+      <p class="paragraph">{{ paragraph }}</p>
+    }
+    <p class="languages">
+      <strong>Languages:</strong>
+      @for (lang of languages(); track lang.name; let last = $last) {
+        {{ lang.name }} ({{ lang.level }}){{ last ? '' : ' · ' }}
+      }
+    </p>
   </div>
 </section>

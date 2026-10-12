@@ -1,0 +1,18 @@
+<article class="case" [attr.aria-labelledby]="'case-' + caseStudy().id">
+  <h3 class="case__title" [id]="'case-' + caseStudy().id">{{ caseStudy().title }}</h3>
+  <dl class="case__body">
+    <div class="case__block">
+      <dt>Challenge</dt>
+      <dd>{{ caseStudy().challenge }}</dd>
+    </div>
+    <div class="case__block">
+      <dt>Approach</dt>
+      <dd>{{ caseStudy().approach }}</dd>
+    </div>
+    <div class="case__block case__block--result">
+      <dt>Result</dt>
+      <dd>{{ caseStudy().result }}</dd>
+    </div>
+  </dl>
+  <app-tag-list [items]="caseStudy().tags" label="Topics" variant="subtle" />
+</article>

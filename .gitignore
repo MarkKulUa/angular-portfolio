@@ -27,7 +27,6 @@ yarn-error.log*
 # IDE
 .idea/
 .vscode/
-.kiro/
 .cursor/
 *.swp
 *.swo
@@ -39,3 +38,6 @@ Thumbs.db
 # Testing
 e2e/test-output/
 .vercel
+
+# Private career notes (never commit; tmp/ is ignored above)
+tmp_context/

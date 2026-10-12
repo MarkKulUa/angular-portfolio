@@ -1,13 +1,20 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Summary } from '@shared/models/resume.model';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { Language } from '@shared/models/profile.model';
 
 @Component({
   selector: 'app-resume-summary',
-  imports: [],
   templateUrl: './resume-summary.html',
   styleUrl: './resume-summary.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumeSummary {
-  summary = input.required<Summary>();
+  summary = input.required<string>();
+  languages = input.required<Language[]>();
+
+  protected paragraphs = computed(() =>
+    this.summary()
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+  );
 }

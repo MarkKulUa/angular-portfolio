@@ -9,7 +9,7 @@ export const pokemonDetailsGuard: CanActivateFn = (route) => {
   const pokemonName = route.paramMap.get('name');
 
   if (!pokemonName) {
-    router.navigate(['/pokemon']);
+    router.navigate(['/lab/pokemon']);
     return false;
   }
 
@@ -17,7 +17,7 @@ export const pokemonDetailsGuard: CanActivateFn = (route) => {
   return pokemonApi.getPokemonDetails(pokemonName).pipe(
     map(() => true),
     catchError(() => {
-      router.navigate(['/pokemon']);
+      router.navigate(['/lab/pokemon']);
       return of(false);
     })
   );

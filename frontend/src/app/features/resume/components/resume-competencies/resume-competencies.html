@@ -1,0 +1,18 @@
+<section class="resume-section" aria-labelledby="competencies-title">
+  <div class="content">
+    <h2 class="section-title" id="competencies-title">Core Competencies</h2>
+    <div class="groups">
+      @for (group of competencies(); track group.title) {
+        <div class="group">
+          <h3 class="group__title">{{ group.title }}</h3>
+          <app-tag-list [items]="group.items" [label]="group.title" />
+          @if (group.extra; as extra) {
+            <p class="group__extra">
+              <strong>{{ extra.label }}:</strong> {{ extra.items.join(', ') }}
+            </p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

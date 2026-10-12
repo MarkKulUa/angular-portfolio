@@ -1,14 +1,8 @@
 .footer {
-  background: #2d3748;
+  background: var(--color-text);
   color: rgba(255, 255, 255, 0.8);
   padding: 2rem 0;
   margin-top: auto;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .footer-content {
@@ -33,14 +27,18 @@ p {
 
 .tech-label {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 500;
 }
 
 .tech-icons {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   a {
     display: flex;
@@ -69,22 +67,6 @@ p {
     &:hover img {
       opacity: 1;
       transform: scale(1.1);
-    }
-  }
-}
-
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-
-  a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: white;
     }
   }
 }

@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Education } from '@shared/models/resume.model';
+import { Education } from '@shared/models/profile.model';
+import { PeriodPipe } from '@shared/ui';
 
 @Component({
   selector: 'app-resume-education',
-  imports: [],
+  imports: [PeriodPipe],
   templateUrl: './resume-education.html',
   styleUrl: './resume-education.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
