@@ -1,9 +1,11 @@
 <header class="header">
   <div class="container">
     <nav class="nav" aria-label="Main">
-      <a routerLink="/" class="logo" aria-label="MK, Mark Kulishov, home" (click)="closeMenu()"
-        >MK</a
-      >
+      <a routerLink="/" class="logo" (click)="closeMenu()">
+        <span class="logo__mark">MK</span>
+        <span class="logo__name">Mark Kulishov</span>
+        <span class="visually-hidden">, home</span>
+      </a>
 
       <button
         type="button"

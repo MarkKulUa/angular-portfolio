@@ -1,7 +1,10 @@
 .intro {
-  background: var(--gradient-brand);
-  color: var(--color-on-brand);
+  position: relative;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(107, 70, 193, 0.1), transparent 45%),
+    var(--color-surface);
   padding: var(--space-8) 0 var(--space-7);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .intro__eyebrow {
@@ -9,15 +12,17 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.9;
+  color: var(--color-accent);
 }
 
 .intro__title {
+  color: var(--color-heading);
   font-size: var(--fs-3xl);
   margin-top: var(--space-2);
 }
 
 .intro__lead {
+  color: var(--color-text-muted);
   max-width: 680px;
   margin-top: var(--space-4);
   font-size: var(--fs-lg);

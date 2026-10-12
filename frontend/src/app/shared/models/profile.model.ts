@@ -37,11 +37,22 @@ export interface ProfileLinks {
 
 export interface Headline {
   role: string;
+  /** Current position line under the target role. */
+  currentRole: string;
+  /** The value statement: three claims, mirrored by `pillars`. */
+  statement: string;
+  /** Exactly three proof pillars, in the order of the statement's claims. */
+  pillars: Pillar[];
   /** Short facts rendered with separators, e.g. "15+ Years in Software Engineering". */
   tagline: string[];
   valueStatement: string;
   /** One-line team scope for the hero. */
   scope: string;
+}
+
+export interface Pillar {
+  title: string;
+  proof: ImpactMetric[];
 }
 
 export interface ImpactMetric {
@@ -53,6 +64,8 @@ export interface ImpactMetric {
 export interface CaseStudy {
   id: string;
   title: string;
+  /** Result-first headline (≤ 10 words, includes the key number). */
+  headline: string;
   challenge: string;
   approach: string;
   result: string;
@@ -98,6 +111,8 @@ export interface Role {
   title: string;
   period: Period;
   highlights: string[];
+  /** One-line summary for the career timeline. */
+  note?: string;
 }
 
 export interface IndependentProject {

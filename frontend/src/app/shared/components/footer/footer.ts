@@ -12,6 +12,8 @@ import { ContactLinks } from '@shared/ui';
 })
 export class Footer {
   person = input.required<Person>();
+  /** The "Built with" icons are hidden on the EM landing page and shown elsewhere. */
+  showTechStack = input<boolean>(true);
 
   protected readonly currentYear = new Date().getFullYear();
 

@@ -30,7 +30,37 @@ describe('Home (EM landing)', () => {
     expect(h1[0].textContent).toContain('Engineering Manager');
     expect(text(fixture)).toContain('Open to Engineering Manager roles');
     expect(text(fixture)).toContain('Warsaw, Poland · Remote-first · EU time zone');
-    expect(text(fixture)).toContain('unit of 7 (4 engineers, 3 business analysts');
+    expect(text(fixture)).toContain('cross-functional unit of 7');
+    expect(text(fixture)).toContain(PROFILE.headline.statement);
+    expect(query(fixture, '.hero__tagline')).toBeNull();
+  });
+
+  it('shows the three proof pillars in the hero', async () => {
+    const fixture = await setup();
+    const pillars = queryAll(fixture, '.hero .pillar');
+
+    expect(pillars.map((p) => p.querySelector('.pillar__title')?.textContent?.trim())).toEqual(
+      PROFILE.headline.pillars.map((p) => p.title)
+    );
+    expect(pillars[1].textContent).toContain('2 weeks → 1–2 days');
+  });
+
+  it('shows the career path from 2011 to the current role and the next step', async () => {
+    const fixture = await setup();
+    const steps = queryAll(fixture, 'app-career-timeline .step');
+
+    expect(steps.map((s) => s.querySelector('.step__title')?.textContent?.trim())).toEqual([
+      'Full-Stack Developer',
+      'Senior Full-Stack Developer',
+      'Tech Lead (acting Engineering Manager)',
+      'Team Lead & Delivery Manager',
+      'Engineering Manager',
+    ]);
+    const current = query(fixture, '.step--current')!;
+    expect(current.getAttribute('aria-current')).toBe('step');
+    expect(current.textContent).toContain('Jul 2025 – Present');
+    expect(current.textContent).toContain('Now');
+    expect(steps[4].classList).toContain('step--next');
   });
 
   it('offers resume, CV and LinkedIn actions but no demo links', async () => {

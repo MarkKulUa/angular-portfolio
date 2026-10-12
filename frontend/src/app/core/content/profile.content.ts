@@ -13,13 +13,40 @@ export const PROFILE: Profile = {
       linkedin: 'https://www.linkedin.com/in/mark-k-85140b1b5/',
       credly: 'https://www.credly.com/users/mark-kulishov/badges',
     },
-    photo: 'assets/images/profile.png',
+    photo: 'assets/images/profile.webp',
     cvFileName: 'Mark_Kulishov_Engineering_Manager_CV.pdf',
     availability: 'Open to Engineering Manager roles',
   },
 
   headline: {
     role: 'Engineering Manager',
+    currentRole:
+      'Team Lead & Delivery Manager at PrivatBank · cross-functional unit of 7 · 15+ internal platforms',
+    statement:
+      "I do three things well: ship predictably with stable releases, bring AI into my team's daily development, and turn individuals into one team that owns its results.",
+    pillars: [
+      {
+        title: 'Predictable delivery',
+        proof: [
+          { value: '80–90%', label: 'of committed work delivered within sprint' },
+          { value: '2–3', label: 'stable production releases every week' },
+        ],
+      },
+      {
+        title: 'AI in daily development',
+        proof: [
+          {
+            value: '2 weeks → 1–2 days',
+            label: 'development time for a typical feature',
+            context: 'spec-driven, AI-assisted development',
+          },
+        ],
+      },
+      {
+        title: 'One team',
+        proof: [{ value: '3 hires', label: 'since 2022, 100% retention' }],
+      },
+    ],
     tagline: [
       '15+ Years in Software Engineering',
       '4+ Years Managing Teams',
@@ -47,57 +74,53 @@ export const PROFILE: Profile = {
       label: 'unplanned work',
       context: 'after moving from ad-hoc Kanban to structured sprints',
     },
-    { value: '80–90%', label: 'of committed work delivered within sprint' },
-    {
-      value: '2 weeks → 1–2 days',
-      label: 'development time for a typical feature',
-      context: 'spec-driven, AI-assisted development',
-    },
-    { value: '3 hires', label: '100% retention', context: 'since 2022' },
   ],
 
   caseStudies: [
     {
       id: 'aws-migration',
       title: 'Emergency migration to AWS',
+      headline: '15 systems moved to AWS in 3 months',
       challenge:
         'Critical banking systems ran in on-premises data centers during a national crisis. 15 systems (30 services, 17 databases) had to move to the cloud fast, without breaking the business.',
       approach:
         'Owned the architecture and resource planning, got infrastructure committee approval, coordinated vendors and operations, and led a team of up to 4 engineers.',
-      result:
-        'All 15 systems moved to AWS in 3 months with no disruption to critical business operations.',
+      result: 'No disruption to critical business operations.',
       tags: ['AWS', 'Cloud migration', 'Architecture', 'Vendor coordination'],
     },
     {
       id: 'predictable-delivery',
       title: 'From chaotic sprints to predictable delivery',
+      headline: '80–90% of committed work delivered within sprint',
       challenge:
         'Tasks moved from sprint to sprint, releases were irregular, and about half of all work was unplanned.',
       approach:
         'Replaced ad-hoc Kanban with structured 2–3-week sprints: planning, estimation and clear rules for what enters a sprint and how unplanned work is handled. Started regular 1:1s with every team member to find the real reasons behind missed tasks. Aligned priorities with the business through QBRs.',
       result:
-        '80–90% of committed work delivered within sprint, unplanned work down from ~50% to ~20%, and a stable release cadence. The 1:1s became the base for individual development plans.',
+        'Unplanned work down from ~50% to ~20%, and a stable release cadence. The 1:1s became the base for individual development plans.',
       tags: ['Scrum', '1:1s', 'Delivery metrics', 'QBRs'],
     },
     {
       id: 'quality-pipeline',
       title: 'A delivery pipeline the team can trust',
+      headline: '2–3 stable releases every week',
       challenge:
         'Releases across ~8 projects in active development were irregular and unpredictable.',
       approach:
         'Built the pipeline end-to-end: Git flow with branch standards, AI code review on every merge request, mandatory senior review, automated build, tests, linting and static analysis, vulnerability scanning with release gating, and QA sign-off.',
       result:
-        '2–3 stable production releases every week. Hotfixes dropped to about one per month, caused by gaps in business requirements, not code.',
+        'Hotfixes dropped to about one per month, caused by gaps in business requirements, not code.',
       tags: ['CI/CD', 'Code review', 'Release gating', 'QA'],
     },
     {
       id: 'ai-spec-driven',
       title: 'Spec-driven, AI-assisted development',
+      headline: 'A typical feature in 1–2 days instead of 2 weeks',
       challenge: 'Coding was the bottleneck: a typical feature took a full 2-week sprint.',
       approach:
         'Introduced spec-driven, AI-assisted development (Cursor, Kiro, Claude) across the team.',
       result:
-        'Development time for a typical feature went from a full 2-week sprint to 1–2 days. The bottleneck moved from coding to requirements, which is also where the few remaining hotfixes come from.',
+        'The bottleneck moved from coding to requirements, which is also where the few remaining hotfixes come from.',
       tags: ['Cursor', 'Kiro', 'Claude', 'Spec-driven development'],
     },
   ],
@@ -226,6 +249,7 @@ export const PROFILE: Profile = {
         {
           title: 'Team Lead & Delivery Manager',
           period: { start: 'Jul 2025', end: 'Present' },
+          note: 'Unit of 7 · 15+ platforms · 99.8%+ SLA',
           highlights: [
             'Promoted after a formal performance review to lead a cross-functional unit of 7 (4 engineers, 3 business analysts, with embedded QA and design) across 15+ concurrent development and support projects: analytics portals, credit and risk decisioning systems, and employee performance platforms for 1,000+ internal users and ~100K operations per day',
             'Replaced ad-hoc Kanban with structured sprint delivery: 2-3-week sprints and a planned release schedule across ~8 active projects, with 2-3 releases shipping to production every week (previously irregular and unpredictable); 80-90% of committed work delivered within sprint; unplanned work cut from ~50% to ~20%',
@@ -238,6 +262,7 @@ export const PROFILE: Profile = {
         {
           title: 'Tech Lead (acting Engineering Manager)',
           period: { start: '2022', end: 'Jul 2025' },
+          note: 'Up to 4 engineers · emergency AWS migration of 15 systems',
           highlights: [
             'Led a team of up to 4 engineers as tech lead and acting engineering manager during the wartime relocation of critical banking systems',
             'Led the emergency migration of 15 systems (30 services, 17 databases) from on-premises data centers to AWS in 3 months with no disruption to critical business operations; owned architecture, resource planning, infrastructure committee approval, and vendor/ops coordination',
@@ -248,6 +273,7 @@ export const PROFILE: Profile = {
         {
           title: 'Senior Full-Stack Developer',
           period: { start: '2018', end: '2022' },
+          note: 'API-first banking systems · informal tech lead for a team of 4',
           highlights: [
             'Designed and built API-first backend systems for banking operations, reporting and internal platforms (Laravel, REST, PostgreSQL)',
             'Informal tech lead for a team of 4: architecture decisions, code quality standards, code reviews and mentoring',
@@ -257,6 +283,7 @@ export const PROFILE: Profile = {
         {
           title: 'Full-Stack Developer',
           period: { start: 'Jul 2011', end: '2018' },
+          note: 'POS terminals, fleet and fuel tracking, cash operations',
           highlights: [
             'Built applications for POS terminal systems, fleet and fuel tracking, and internal cash operations',
           ],

@@ -1,4 +1,4 @@
-<section class="resume-section" aria-labelledby="certifications-title">
+<section class="resume-section" id="certifications" aria-labelledby="certifications-title">
   <div class="content">
     <h2 class="section-title" id="certifications-title">Licenses & Certifications</h2>
 
@@ -46,7 +46,7 @@
           </h3>
           <p class="meta">{{ cert.provider }} · Issued {{ cert.issued }}</p>
           @if (cert.skills?.length) {
-            <app-tag-list [items]="cert.skills!" label="Skills" variant="subtle" />
+            <p class="card__skills">{{ cert.skills!.join(', ') }}</p>
           }
         </li>
       }

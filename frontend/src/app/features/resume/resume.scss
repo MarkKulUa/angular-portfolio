@@ -4,6 +4,28 @@
   padding: var(--space-7) var(--space-6);
 }
 
+.resume-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.resume-toc {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .resume-layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1000px);
+    gap: var(--space-6);
+    max-width: 1232px;
+  }
+
+  .resume-toc {
+    display: block;
+  }
+}
+
 .resume-container {
   max-width: 1000px;
   margin: 0 auto;

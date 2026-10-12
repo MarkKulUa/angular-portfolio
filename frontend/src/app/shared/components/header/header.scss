@@ -1,9 +1,17 @@
-.header {
+/* Sticky on the host: a sticky child only sticks within its parent (the 70px host). */
+:host {
+  display: block;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--gradient-brand);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  position: relative;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .nav {
@@ -14,9 +22,30 @@
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-heading);
+}
+
+.logo__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-brand);
   color: var(--color-on-brand);
-  font-size: 1.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
+  box-shadow: 0 4px 12px rgba(90, 79, 207, 0.3);
+}
+
+.logo__name {
+  font-weight: 600;
+  font-size: var(--fs-lg);
 }
 
 .menu {
@@ -27,27 +56,40 @@
 
 .nav-links {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--space-1);
   list-style: none;
   margin: 0;
   padding: 0;
 
   a {
+    position: relative;
     display: block;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--color-text);
     font-weight: 500;
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-md);
-    transition: background-color 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--color-on-brand);
+      color: var(--color-accent);
+      background: var(--color-accent-soft);
     }
 
     &.active {
-      background: rgba(255, 255, 255, 0.22);
-      color: var(--color-on-brand);
+      color: var(--color-accent);
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: var(--space-4);
+        right: var(--space-4);
+        bottom: 0;
+        height: 2px;
+        background: var(--gradient-brand);
+        border-radius: 2px;
+      }
     }
   }
 }
@@ -57,13 +99,19 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  background: var(--color-on-brand);
-  color: var(--color-accent);
+  background: var(--gradient-brand);
+  color: var(--color-on-brand);
   border: 0;
   border-radius: var(--radius-md);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(90, 79, 207, 0.25);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(90, 79, 207, 0.4);
+  }
 
   &:disabled {
     cursor: progress;
@@ -74,13 +122,17 @@
   display: none;
   padding: var(--space-2);
   background: transparent;
-  color: var(--color-on-brand);
+  color: var(--color-heading);
   border: 0;
   border-radius: var(--radius-md);
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
+  .logo__name {
+    display: none;
+  }
+
   .menu-toggle {
     display: inline-flex;
   }
@@ -95,7 +147,8 @@
     align-items: stretch;
     gap: var(--space-3);
     padding: var(--space-4);
-    background: var(--color-brand-end);
+    background: var(--color-surface-raised);
+    border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-lg);
 
     &--open {
@@ -105,6 +158,14 @@
 
   .nav-links {
     flex-direction: column;
+
+    a.active::after {
+      display: none;
+    }
+
+    a.active {
+      background: var(--color-accent-soft);
+    }
   }
 
   .cv-button {

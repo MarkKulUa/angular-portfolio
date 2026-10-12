@@ -16,11 +16,16 @@
 </app-section>
 
 <app-section
-  id="case-studies"
-  eyebrow="Case studies"
-  title="How I solved real delivery problems"
+  id="career"
+  eyebrow="Career path"
+  title="From engineer to engineering leader"
+  lead="15+ years at PrivatBank, the last 4+ in people management."
   [muted]="true"
 >
+  <app-career-timeline [roles]="data.experience[0].roles" [next]="data.headline.role" />
+</app-section>
+
+<app-section id="case-studies" eyebrow="Case studies" title="How I solved real delivery problems">
   <ul class="cases">
     @for (caseStudy of data.caseStudies; track caseStudy.id) {
       <li><app-case-card [caseStudy]="caseStudy" /></li>
@@ -28,7 +33,7 @@
   </ul>
 </app-section>
 
-<app-section id="how-i-lead" eyebrow="Leadership" title="How I lead">
+<app-section id="how-i-lead" eyebrow="Leadership" title="How I lead" [muted]="true">
   <app-leadership-principles [principles]="data.principles" />
 </app-section>
 

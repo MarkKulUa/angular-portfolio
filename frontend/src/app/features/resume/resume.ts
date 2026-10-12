@@ -8,6 +8,7 @@ import { ResumeExperience } from './components/resume-experience/resume-experien
 import { ResumeProjects } from './components/resume-projects/resume-projects';
 import { ResumeEducation } from './components/resume-education/resume-education';
 import { ResumeCertifications } from './components/resume-certifications/resume-certifications';
+import { ResumeToc } from './components/resume-toc/resume-toc';
 
 @Component({
   selector: 'app-resume',
@@ -19,6 +20,7 @@ import { ResumeCertifications } from './components/resume-certifications/resume-
     ResumeProjects,
     ResumeEducation,
     ResumeCertifications,
+    ResumeToc,
   ],
   templateUrl: './resume.html',
   styleUrl: './resume.scss',

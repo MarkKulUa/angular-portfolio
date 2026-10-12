@@ -1,6 +1,6 @@
 // Shared styles for all auth pages (login, register, protected)
 
-// Common container with gradient background
+// Common container on a light surface (brand gradient is reserved for accents)
 .auth-container,
 .protected-container {
   min-height: calc(100vh - 200px);
@@ -8,17 +8,20 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: var(--gradient-brand);
+  background:
+    radial-gradient(circle at 80% 15%, rgba(107, 70, 193, 0.1), transparent 45%),
+    var(--color-surface);
 }
 
 // Common card styles
 .auth-card,
 .protected-card {
-  background: white;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 3rem;
   width: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
 
   h1 {
     margin: 0 0 0.5rem 0;
@@ -77,7 +80,7 @@
 
     &:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: var(--color-accent);
       box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
@@ -165,7 +168,7 @@
   color: #666;
 
   a {
-    color: #667eea;
+    color: var(--color-accent);
     text-decoration: none;
     font-weight: 600;
 

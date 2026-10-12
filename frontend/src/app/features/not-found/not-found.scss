@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-brand);
-  color: white;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(107, 70, 193, 0.1), transparent 50%),
+    var(--color-surface);
   text-align: center;
-  padding: 2rem;
+  padding: var(--space-6);
 }
 
 .content {
@@ -16,48 +17,51 @@
 .error-code {
   font-size: 8rem;
   font-weight: 700;
-  margin: 0;
   line-height: 1;
-  animation: bounce 1s infinite;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .error-title {
+  color: var(--color-heading);
   font-size: 2.5rem;
-  font-weight: 600;
-  margin: 1rem 0;
+  margin: var(--space-4) 0;
 }
 
 .error-description {
-  font-size: 1.2rem;
-  margin: 1.5rem 0 2.5rem;
-  opacity: 0.9;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lg);
+  margin: var(--space-5) 0 var(--space-6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
 }
 
 .btn-home {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: white;
-  color: var(--color-accent);
-  text-decoration: none;
-  border-radius: 8px;
+  padding: var(--space-3) var(--space-6);
+  background: var(--gradient-brand);
+  color: var(--color-on-brand);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
   font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-lg);
   }
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.btn-home--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 @media (max-width: 768px) {
@@ -68,21 +72,4 @@
   .error-title {
     font-size: 2rem;
   }
-
-  .error-description {
-    font-size: 1rem;
-  }
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  justify-content: center;
-}
-
-.btn-home--outline {
-  background: transparent;
-  color: var(--color-on-brand);
-  border: 2px solid rgba(255, 255, 255, 0.85);
 }

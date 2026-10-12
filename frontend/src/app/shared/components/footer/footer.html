@@ -3,23 +3,25 @@
     <div class="footer-content">
       <p>&copy; {{ currentYear }} {{ person().name }}. All rights reserved.</p>
 
-      <div class="tech-stack">
-        <span class="tech-label">Built with:</span>
-        <ul class="tech-icons">
-          @for (tech of techStack; track tech.name) {
-            <li>
-              <a [href]="tech.url" target="_blank" rel="noopener noreferrer" [title]="tech.name">
-                <img
-                  [ngSrc]="'assets/images/' + tech.icon"
-                  [alt]="tech.name"
-                  width="24"
-                  height="24"
-                />
-              </a>
-            </li>
-          }
-        </ul>
-      </div>
+      @if (showTechStack()) {
+        <div class="tech-stack">
+          <span class="tech-label">Built with:</span>
+          <ul class="tech-icons">
+            @for (tech of techStack; track tech.name) {
+              <li>
+                <a [href]="tech.url" target="_blank" rel="noopener noreferrer" [title]="tech.name">
+                  <img
+                    [ngSrc]="'assets/images/' + tech.icon"
+                    [alt]="tech.name"
+                    width="24"
+                    height="24"
+                  />
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
 
       <app-contact-links [links]="person().links" [showCredly]="false" variant="on-brand" />
     </div>

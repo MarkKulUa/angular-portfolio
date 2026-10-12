@@ -13,8 +13,7 @@ describe('PROFILE content', () => {
       expect(PROFILE.person.name).toBe('Mark Kulishov');
       expect(PROFILE.headline.role).toBe('Engineering Manager');
       expect(PROFILE.summary.length).toBeGreaterThan(100);
-      expect(PROFILE.impactMetrics.length).toBeGreaterThanOrEqual(4);
-      expect(PROFILE.impactMetrics.length).toBeLessThanOrEqual(6);
+      expect(PROFILE.impactMetrics).toHaveLength(3);
       expect(PROFILE.caseStudies.length).toBeGreaterThanOrEqual(3);
       expect(PROFILE.principles.length).toBeGreaterThanOrEqual(4);
       expect(PROFILE.competencies.map((c) => c.title)).toEqual([
@@ -120,6 +119,40 @@ describe('PROFILE content', () => {
         name: 'English',
         level: 'Professional working proficiency',
       });
+    });
+  });
+
+  describe('Design polish (D1–D3)', () => {
+    it('D1 never repeats a pillar metric in "Results in numbers"', () => {
+      const pillarValues = PROFILE.headline.pillars.flatMap((p) => p.proof.map((m) => m.value));
+      const tileValues = PROFILE.impactMetrics.map((m) => m.value);
+
+      expect(tileValues.filter((v) => pillarValues.includes(v))).toEqual([]);
+    });
+
+    it('D2 has three pillars in the order of the statement claims', () => {
+      expect(PROFILE.headline.pillars.map((p) => p.title)).toEqual([
+        'Predictable delivery',
+        'AI in daily development',
+        'One team',
+      ]);
+      const statement = PROFILE.headline.statement;
+      const claims = ['ship predictably', 'bring AI', 'one team'].map((c) => statement.indexOf(c));
+      expect(claims.every((i) => i >= 0)).toBe(true);
+      expect([...claims].sort((a, b) => a - b)).toEqual(claims);
+    });
+
+    it('D3 starts every case study with a short headline that has a number', () => {
+      for (const cs of PROFILE.caseStudies) {
+        expect(cs.headline.split(/\s+/).length, cs.id).toBeLessThanOrEqual(10);
+        expect(cs.headline, cs.id).toMatch(/\d/);
+      }
+    });
+
+    it('gives every PrivatBank role a timeline note', () => {
+      for (const role of privatBank?.roles ?? []) {
+        expect(role.note, role.title).toBeTruthy();
+      }
     });
   });
 });

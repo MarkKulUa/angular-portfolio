@@ -9,7 +9,7 @@ Node 24, npm 11, TypeScript ~5.9 (frontend), ~5.7 (backend).
 | Area | Choice |
 |------|--------|
 | Framework | Angular 21, standalone components only |
-| Build | `@angular/build:application` (esbuild) → `dist/frontend/browser`; budgets: initial 500 kB warning / 1 MB error, component style 4 kB / 8 kB. Initial bundle is ~392 kB (Oct 2026) |
+| Build | `@angular/build:application` (esbuild) → `dist/frontend/browser`; budgets: initial 500 kB warning / 1 MB error, component style 4 kB / 8 kB. Initial bundle is ~405 kB (Oct 2026) |
 | Change detection | `OnPush` everywhere (ESLint-enforced); zone.js loaded via `polyfills` (not zoneless) |
 | State | Signals (`signal`, `computed`, `input()`); simple store services in `core/store` |
 | Content | Typed TS: `core/content/profile.content.ts` (`PROFILE`), read via `ProfileContent` service. No HTTP for content |
@@ -17,6 +17,7 @@ Node 24, npm 11, TypeScript ~5.9 (frontend), ~5.7 (backend).
 | UI | Hand-written SCSS + design tokens on `:root` in `styles.scss` (brand gradient `#5a67d8 → #6b46c1`, AA-compliant). Shared presentational components in `shared/ui` (barrel `@shared/ui`). Inter font. No Angular Material |
 | Routing | `app.routes.ts`: `/`, `/resume` (eager), `/lab/**` (lazy), legacy redirects `/pokemon*`, `/auth*` → `/lab/...`; every route has a `title` |
 | Auth demo | Session restored lazily in `authGuard` (`/auth/me`), never on app start |
+| Layout | Header is sticky on its `:host` (not the inner element); `ViewportScroller` offset 86px for anchor links; the footer hides "Built with" on `/` |
 | SEO | Static meta/OG/Twitter/JSON-LD in `index.html`; `robots.txt`, `sitemap.xml`, `llms.txt`, favicons in `src/` (copied via `angular.json` assets) |
 | Tests | `ng test` → `@angular/build:unit-test` with the Vitest runner + jsdom (AOT-compiled, so `templateUrl` works). DOM helpers in `src/app/testing.ts` |
 | Lint | ESLint 9 flat config (`angular-eslint` 21 + `@angular-eslint/builder` 21), Prettier, Sheriff 0.19 (`sheriff.config.ts`, barrel-less mode) |

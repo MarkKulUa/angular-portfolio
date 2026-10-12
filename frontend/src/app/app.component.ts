@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ViewportScroller } from '@angular/common';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter, map } from 'rxjs';
 import { ProfileContent } from '@core/content/profile-content';
 import { CvPdfService } from '@core/cv/cv-pdf.service';
 import { Header } from './shared/components/header/header';
@@ -16,7 +19,7 @@ import { Footer } from './shared/components/footer/footer';
       <main id="main" tabindex="-1">
         <router-outlet />
       </main>
-      <app-footer [person]="profile().person" />
+      <app-footer [person]="profile().person" [showTechStack]="showTechStack()" />
     </div>
   `,
   styles: [
@@ -54,4 +57,20 @@ import { Footer } from './shared/components/footer/footer';
 export class AppComponent {
   protected readonly profile = inject(ProfileContent).profile;
   protected readonly cvPdf = inject(CvPdfService);
+
+  private readonly router = inject(Router);
+
+  constructor() {
+    // Anchor scrolling ignores CSS scroll-margin: keep targets below the sticky header (70px + gap).
+    inject(ViewportScroller).setOffset([0, 86]);
+  }
+  private readonly url = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects)
+    ),
+    { initialValue: this.router.url }
+  );
+  /** Tech icons stay off the EM landing page (`/`, incl. fragments and query params). */
+  protected readonly showTechStack = computed(() => !/^\/(?:[?#].*)?$/.test(this.url()));
 }

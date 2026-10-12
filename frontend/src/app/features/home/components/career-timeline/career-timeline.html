@@ -1,0 +1,24 @@
+<ol class="timeline">
+  @for (role of steps(); track role.title) {
+    @let current = role.period.end === 'Present';
+    <li class="step" [class.step--current]="current" [attr.aria-current]="current ? 'step' : null">
+      <span class="step__dot" aria-hidden="true"></span>
+      <p class="step__period">
+        {{ role.period | period }}
+        @if (current) {
+          <span class="step__now">Now</span>
+        }
+      </p>
+      <h3 class="step__title">{{ role.title }}</h3>
+      @if (role.note) {
+        <p class="step__note">{{ role.note }}</p>
+      }
+    </li>
+  }
+  <li class="step step--next">
+    <span class="step__dot" aria-hidden="true"></span>
+    <p class="step__period">Next</p>
+    <h3 class="step__title">{{ next() }}</h3>
+    <p class="step__note">A larger scope and a team that ships predictably.</p>
+  </li>
+</ol>

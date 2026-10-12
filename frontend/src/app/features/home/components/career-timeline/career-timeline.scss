@@ -1,0 +1,109 @@
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Connecting line through the dots. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    right: 9px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-border), var(--color-brand-start) 80%);
+  }
+}
+
+.step {
+  position: relative;
+  padding-top: var(--space-6);
+}
+
+.step__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--color-surface-raised);
+  border: 3px solid var(--color-brand-start);
+  border-radius: 50%;
+}
+
+.step__period {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.step__now {
+  display: inline-block;
+  margin-left: var(--space-1);
+  padding: 0 var(--space-2);
+  background: var(--gradient-brand);
+  color: var(--color-on-brand);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+}
+
+.step__title {
+  margin-top: var(--space-1);
+  color: var(--color-heading);
+  font-size: var(--fs-base);
+  line-height: 1.35;
+}
+
+.step__note {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+.step--current {
+  .step__dot {
+    background: var(--gradient-brand);
+    border-color: var(--color-surface-raised);
+    box-shadow: 0 0 0 3px var(--color-brand-start);
+  }
+
+  .step__title {
+    color: var(--color-accent);
+  }
+}
+
+.step--next {
+  .step__dot {
+    border-style: dashed;
+  }
+
+  .step__title {
+    color: var(--color-text-muted);
+  }
+}
+
+@media (max-width: 900px) {
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+
+    &::before {
+      top: 9px;
+      bottom: 9px;
+      left: 9px;
+      right: auto;
+      width: 2px;
+      height: auto;
+      background: linear-gradient(180deg, var(--color-border), var(--color-brand-start) 80%);
+    }
+  }
+
+  .step {
+    padding: 0 0 0 var(--space-7);
+  }
+}

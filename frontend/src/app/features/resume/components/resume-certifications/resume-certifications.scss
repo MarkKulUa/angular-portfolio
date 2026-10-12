@@ -58,6 +58,11 @@ a {
   break-inside: avoid;
 }
 
+.card__skills {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
 .card__name {
   font-size: var(--fs-base);
   color: var(--color-heading);

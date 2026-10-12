@@ -12,16 +12,38 @@
         <span class="hero__name">{{ person().name }}</span>
         <span class="hero__role">{{ headline().role }}</span>
       </h1>
+      <p class="hero__current">{{ headline().currentRole }}</p>
 
-      <ul class="hero__tagline" aria-label="Highlights">
-        @for (item of headline().tagline; track item) {
-          <li>{{ item }}</li>
-        }
-      </ul>
+      <p class="hero__statement">{{ headline().statement }}</p>
+    </div>
 
-      <p class="hero__statement">{{ headline().valueStatement }}</p>
-      <p class="hero__scope">{{ headline().scope }}</p>
+    <div class="hero__photo">
+      <img
+        [ngSrc]="person().photo"
+        [alt]="'Photo of ' + person().name"
+        width="280"
+        height="280"
+        priority
+      />
+    </div>
 
+    <ul class="pillars" aria-label="Proof points">
+      @for (pillar of headline().pillars; track pillar.title) {
+        <li class="pillar">
+          <h2 class="pillar__title">{{ pillar.title }}</h2>
+          <dl class="pillar__proof">
+            @for (metric of pillar.proof; track metric.value) {
+              <div class="proof">
+                <dt class="proof__value">{{ metric.value }}</dt>
+                <dd class="proof__label">{{ metric.label }}</dd>
+              </div>
+            }
+          </dl>
+        </li>
+      }
+    </ul>
+
+    <div class="hero__footer">
       <p class="hero__location">
         <app-icon name="map-pin" [size]="18" />
         {{ person().location }} · {{ person().workFormat }}
@@ -53,16 +75,6 @@
           <span class="visually-hidden">(opens in a new tab)</span>
         </a>
       </div>
-    </div>
-
-    <div class="hero__photo">
-      <img
-        [ngSrc]="person().photo"
-        [alt]="'Photo of ' + person().name"
-        width="280"
-        height="280"
-        priority
-      />
     </div>
   </div>
 </section>
